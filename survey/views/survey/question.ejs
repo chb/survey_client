@@ -1,0 +1,23 @@
+<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:MESSAGES.BUTTONS.SAVE_AND_EXIT, exitID:'exit-save'}) %>
+<div id="progress">
+  <span id="progressbar"></span> &nbsp;&nbsp;<span id="question-count-label">Question</span> #<span id="questionnum"></span> / <%= MESSAGES.ABOUT %> <span id="totalquestion"></span>
+</div>
+<div id="surveybody">
+
+	<div id="context">
+		<h2 id="contextdetails"></h2>
+	</div>
+	<div id="contextdescription"></div>
+	<div id="questions"></div>
+
+	<div id="buttons">
+		&nbsp;&nbsp;<button id="previous" class="previous" value="previous"><%= MESSAGES.BUTTONS.PREVIOUS %></button>
+		&nbsp;&nbsp;<button id="next" class="next" value="next"><%= MESSAGES.BUTTONS.NEXT %></button>
+	</div>
+
+	<% if (survey.showDeIdentifiedMessage && survey.showDeIdentifiedMessage == 'true') { %>
+		<div id="de-identified-message" class="rounded"><%= MESSAGES.DE_IDENTIFIED %></div>
+	<% } %>
+</div>
+
+<%= $.View("//survey/views/survey/footer.ejs", {survey:survey}) %>

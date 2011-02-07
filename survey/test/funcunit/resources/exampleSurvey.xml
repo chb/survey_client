@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<Survey>
+    <id>Sample Survey</id>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:indivo="http://indivo.org/vocab/#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns="http://indivo.org/survey/vocab#"
+             xml:base="http://surveys.indivo.org/sample/">
+             
+	<Survey rdf:about="MySampleSurvey">
+	    <dc:title>Example Survey</dc:title>
+	    <introText>Welcome to the example survey. Please answer the following quesitons.</introText>
+	    <completedMessage>Thank you for submiting answers to my survey.</completedMessage>
+	    <dc:creator>Me</dc:creator>
+	    <dc:date>10/04/2010</dc:date>
+	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
+	    <showDeIdentifiedMessage>true</showDeIdentifiedMessage>
+	    <reviewAnswers>true</reviewAnswers>
+	    <surveyLine rdf:resource="#mainline" ></surveyLine>
+	</Survey>
+        
+	<!-- reusable AnswerSequence -->
+	<AnswerSequence rdf:about="#visitTimeFrame">
+	    <rdf:li>
+		<LabelAnswer>
+		    <answerText>Less than 1 year ago</answerText>
+		    <answerObject rdf:resource="http://indivo.org/vocab/integer-ranges#less_than_one" ></answerObject>
+		</LabelAnswer>
+	    </rdf:li>
+	    <rdf:li>
+		<LabelAnswer>
+		    <answerText>1-2 years ago</answerText>
+		    <answerObject rdf:resource="http://indivo.org/vocab/integer-ranges#one_to_two" ></answerObject>
+		</LabelAnswer>
+	    </rdf:li>
+	    <rdf:li>
+		<LabelAnswer>
+		    <answerText>2-5 years ago</answerText>
+		    <answerObject rdf:resource="http://indivo.org/vocab/integer-ranges#two_to_five" ></answerObject>
+		</LabelAnswer>
+	    </rdf:li>
+	    <rdf:li>
+		<LabelAnswer>
+		    <answerText>More than 5 years ago</answerText>
+		    <answerObject rdf:resource="http://indivo.org/vocab/integer-ranges#more_than_five" ></answerObject>
+		</LabelAnswer>
+	    </rdf:li>
+	    <rdf:li>
+		<LabelAnswer>
+		    <answerText>Never</answerText>
+		    <answerObject rdf:resource="http://indivo.org/vocab/general#Never" ></answerObject>
+		</LabelAnswer>
+	    </rdf:li>
+	</AnswerSequence>
+        
+        <!-- Simple Question used by a Repeater -->
+	<SimpleQuestion rdf:about="#num-siblings">
+	    <questionText>How many siblings do you have?</questionText>
+	    <defaultAnswerForEstimation>1</defaultAnswerForEstimation>
+	    <questionAnswers>
+		<AnswerSequence>
+		    <rdf:li>
+			<TextAnswer>
+			    <datatype rdf:resource="xsd:integer" />
+			    <answerProperty rdf:resource="http://indivo.org/vocab/#num_siblings" />
+			</TextAnswer>
+		    </rdf:li>
+		</AnswerSequence>
+	    </questionAnswers>
+	</SimpleQuestion>
+        
+	<Line rdf:about="#mainline">
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>Which best describes why you are taking this survey?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#whyTake" />
+		    <defaultAnswerForEstimation>I am taking this survey for myself</defaultAnswerForEstimation>
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>I am taking this survey for myself.</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/general#Myself" ></answerObject>
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>I am taking this survey for someone else.</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/general#SomeoneElse" ></answerObject>
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+	    </rdf:li>
+
+	    <rdf:li>
+		<ConditionalBranch>
+		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === "&lt;http://myorganization.org/vocab/general#Myself&gt;"</branchCondition>
+		    <line rdf:resource="selfLine" />
+		</ConditionalBranch>
+	    </rdf:li>
+
+	    <rdf:li>
+		<ConditionalBranch>
+		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === "&lt;http://myorganization.org/vocab/general#SomeoneElse&gt;"</branchCondition>
+		    <line rdf:resource="general" />
+		</ConditionalBranch>
+	    </rdf:li>
+	</Line>
+
+	<Line rdf:about="selfLine">
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>When was the last time you saw a doctor?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#lastDoctorVisitByYear" />
+		    <questionAnswers rdf:resource="#visitTimeFrame" />
+		</SelectOneQuestion>
+	    </rdf:li>
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>When was the last time you saw a nutritionist or dietitian?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#lastNutritionistOrDieticianVisitByYear" />
+		    <questionAnswers rdf:resource="#visitTimeFrame" />
+		</SelectOneQuestion>
+	    </rdf:li>
+	    
+	    <rdf:li>
+		<!-- a repeater of questions, based on the answer to another question -->
+		<Repeater rdf:about="#sibling-repeater">
+		    <dc:title>Brothers and Sisters</dc:title>
+		    <connector rdf:resource="http://indivo.org/vocab/family#sibling" />
+
+		    <repeatConditionQuestion rdf:resource="#num-siblings" />
+
+		    <repeatCondition>{repeat_count} &lt; {O[http://indivo.org/vocab/#num_siblings]}[0]</repeatCondition>
+
+		    <line rdf:resource="#sibling-info" />
+
+		    <!-- parameter for the sibling info line, repeat_count is special -->
+		    <parameter>
+			<Parameter>
+			    <name>sibling_num</name>
+			    <value>{repeat_count}</value>
+			</Parameter>
+		    </parameter>
+
+		</Repeater>
+	    </rdf:li>
+	    
+	    <rdf:li>
+		<Branch>
+		    <line rdf:resource="general" ></line>
+		</Branch>
+	    </rdf:li>
+	</Line>
+
+
+	<Line rdf:about="#sibling-info">
+	    <dc:title>Sibling Information - #{sibling_num}</dc:title>
+	    <rdf:li>
+		<SimpleQuestion>
+		    <questionText>Please provide the sibling's initials:</questionText>
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<TextAnswer>
+				    <answerProperty rdf:resource="http://indivo.org/vocab/#initials" />
+				</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SimpleQuestion>
+	    </rdf:li>
+
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>Is this sibling:</questionText>
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>a full sibling</answerText>
+				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
+				    <answerObject rdf:resource="http://indivo.org/vocab/#fullSibling" />
+				    <selected rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</selected>
+				</LabelAnswer>
+			    </rdf:li>
+
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>a half sibling from the mother's side</answerText>
+				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
+				    <answerObject rdf:resource="http://indivo.org/vocab/#halfMaternalSibling" />
+				</LabelAnswer>
+			    </rdf:li>
+
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>a half sibling from the father's side</answerText>
+				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
+				    <answerObject rdf:resource="http://indivo.org/vocab/#halfPaternalSibling" />
+				</LabelAnswer>
+			    </rdf:li>
+
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>an adopted sibling or foster child</answerText>
+				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
+				    <answerObject rdf:resource="http://indivo.org/vocab/#adoptedOrFoster" />
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+	    </rdf:li>
+	</Line>
+
+	<Line rdf:about="general">
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>Are you male or female?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/demographics#sex" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Male</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/general#Male" />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Female</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/general#Female" />
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+	    </rdf:li>
+	    <rdf:li>
+		<SimpleQuestion>
+		    <questionText>What is your date of birth?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/demographics#dateOfBirth" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<TextAnswer>
+				    <answerNote>(Click inside the box for a calendar)</answerNote>
+				    <datatype rdf:resource="xsd:date" ></datatype>
+				</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SimpleQuestion>
+	    </rdf:li>
+	    <rdf:li>
+		<SelectMultipleQuestion>
+		    <questionText>What is your race? Check all that apply.</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/demographics#race" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Asian</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#Asian"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>American Indian/Alaskan Native</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#AmericanIndianOrAlaskanNative"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Black/African American</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#AfricanAmerican"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Native Hawaiian/Other Pacific Islander</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#NativeHawaiianOrOtherPacificIslander"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>White</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#Caucasian"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <!-- you can mix label and text answers -->
+			    <rdf:li>
+				<TextAnswer>
+				    <answerLabel>Other.  Please Specify:</answerLabel>
+				</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectMultipleQuestion>
+	    </rdf:li>
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>Are you Hispanic or Latino?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/demographics#hispanicOrLatino" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Yes</answerText>
+				    <answerObject rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</answerObject>
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>No</answerText>
+				    <answerObject rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</answerObject>
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+	    </rdf:li>
+	    <rdf:li>
+		<SelectOneQuestion>
+		    <questionText>In general, would you say your health is:</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/general#health" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Excellent</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/quality#excellent" />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Very good</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/quality#veryGood" />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Good</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/quality#good" />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Fair</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/quality#fair" />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Poor</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/quality#poor" />
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+	    </rdf:li>
+	</Line>
+    </rdf:RDF>
+</Survey>

@@ -1,0 +1,10 @@
+<select>
+<% for(var i=0; i<question.answers.length; i++) { %>
+	<option class="answer-selector" data-answerIndex="<%= i %>" 
+	<% if (question.answers[i].selected || question.answers[i].matches(question.get_choice(currentAnswer))) { %> selected <% } %> > 
+		<%= $.View("//survey/views/answer/genericAnswer.ejs", {answer:question.answers[i], currentAnswer:(currentAnswer.choice) ? currentAnswer.choice : {}}) %>
+	</option>
+<% } %>
+</select>
+
+

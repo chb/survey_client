@@ -1,0 +1,10 @@
+<%= $.View("//survey/views/question/question_header.ejs", {question:question}) %>
+
+<div class="answers">
+	<div class="answer">
+		<%= $.View("//survey/views/answer/genericAnswer.ejs", {answer:question.answers[0], currentAnswer:(currentAnswer.single) ? currentAnswer.single : {}}) %>
+	</div>
+</div>
+
+<%= $.View("//survey/views/question/question_footer.ejs", {}) %>
+

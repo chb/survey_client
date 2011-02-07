@@ -1,0 +1,44 @@
+<% if (ALLOW_EXIT) { %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:MESSAGES.BUTTONS.EXIT, exitID:'exit'}) %>
+<% } else {%>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
+<% } %>
+
+<div id="surveybody">
+<% if (survey.showCreator) { %>
+	<p id="survey_creator">created by <b><u><%= survey.creator %></u></b> on <b><u><%= survey.date %></u></b>.<br /></p>
+<% } %>
+
+<% if (survey.proband_name) { %>
+<p>
+	<%= MESSAGES.PROBAND_INTRO %> <b><%= survey.proband_name %></b>.
+</p>
+<% } %>
+
+<% if (survey.introText && !existing_state) { %>
+  <div id="intro-text"><%= survey.introText %></div>
+<% } %>
+
+<% if (survey.showDeIdentifiedMessage && survey.showDeIdentifiedMessage == 'true') { %>
+<p id="de-identified-welcome-message"><%= MESSAGES.DE_IDENTIFIED_INTRO %></p>
+<% } %>
+
+<% if (existing_state) {%>
+<p>
+ <%= MESSAGES.SURVEY_ALREADY_STARTED %>
+</p>
+<p>
+<button id="restore" value="restore"><%= MESSAGES.BUTTONS.SURVEY_RESTORE %></button><br />
+<button id="restart" ><%= MESSAGES.BUTTONS.SURVEY_RESTART %></button>
+</p>
+</div>
+
+<% } else { %>
+<p>
+<button id="start" value="start"><%= MESSAGES.BUTTONS.SURVEY_START %></button>
+</p>
+
+<% } %>
+
+<%= $.View("//survey/views/survey/footer.ejs", {survey:survey}) %>
+

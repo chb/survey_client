@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Survey>
+    <id>Sample Survey</id>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:indivo="http://indivo.org/vocab/#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns="http://indivo.org/survey/vocab#"
+             xml:base="http://surveys.indivo.org/sample/">
+             
+	<Survey rdf:about="MySampleSurvey">
+	    <dc:title>Simple Question Survey</dc:title>
+	    <introText>Welcome to the Simple Question Survey. Please answer the following quesitons.</introText>
+	    <completedMessage>Thank you for submiting answers to my Simple Question Survey.</completedMessage>
+	    <dc:creator>Me</dc:creator>
+	    <dc:date>10/04/2010</dc:date>
+	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
+	    <showDeIdentifiedMessage>false</showDeIdentifiedMessage>
+	    <surveyLine rdf:resource="#mainline" ></surveyLine>
+	</Survey>
+        
+	
+	<Line rdf:about="#mainline">
+		<rdf:li>
+		<SimpleQuestion>
+		    <questionText>Age?</questionText>
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<TextAnswer>
+				    <answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#text" />
+				    <datatype rdf:resource="xsd:integer" />
+				</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SimpleQuestion>
+	    </rdf:li>
+	
+	    <rdf:li>
+		<SimpleQuestion>
+		    <questionText>Enter some text</questionText>
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<TextAnswer>
+				    <answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#text" />
+				</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SimpleQuestion>
+	    </rdf:li>
+		
+	</Line>
+
+    </rdf:RDF>
+</Survey>

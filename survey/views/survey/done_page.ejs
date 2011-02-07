@@ -1,0 +1,29 @@
+<% if (ALLOW_EXIT) { %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:'Exit', exitID:'exit'}) %>
+<% } else {%>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
+<% } %>
+
+<div id="surveybody">
+<p>
+	<%= MESSAGES.SURVEY_COMPLETED %>
+</p>
+
+<p>
+  <button id="goto_answer_summary" ><%= MESSAGES.BUTTONS.ANSWERS_REVIEW_SENT %></button>
+</p>
+
+<% if (ADMIN) {%>
+<p>
+  <button id="redo"><%= MESSAGES.BUTTONS.SURVEY_REDO %></button>
+</p>
+<% } %>
+
+<% if (survey.completedMessage) { %>
+    <p id="completedMessage"><%= survey.completedMessage %></p>
+<% } %>
+
+</div>
+
+
+<%= $.View("//survey/views/survey/footer.ejs", {survey:survey}) %>

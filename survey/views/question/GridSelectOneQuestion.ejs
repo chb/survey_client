@@ -1,0 +1,29 @@
+<%= $.View("//survey/views/question/question_header.ejs", {question:question}) %>
+
+<table class='answers grid'>
+	<thead>
+		<tr>
+			<th></th>
+			<% for(var i=0; i<question.answers.length; i++) { %>
+				<th class="grid-header"><%= question.answers[i].text %></th>
+			<% } %>
+		</tr>
+	</thead>
+	<% for(var i=0; i<question.questions.length; i++) { %>
+		<tr class="question sub-question <% if(i%2 == 0) { %> even-row <%}%>">
+			<td>
+				<span class="sub-question-text question-title"><span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span><%= question.questions[i].question %></span> 
+			</td>
+			<% for(var j=0; j<question.answers.length; j++) { %>
+				<td class="grid-td">
+					<input class="answer-selector" type="radio" name="<%= i %>" 
+						<% if (question.questions[i].answers[j].selected || (currentAnswer.choices && question.questions[i].answers[j].matches(currentAnswer.choices[i]))) { %> checked <% } %>/>
+				</td>
+			<% } %>
+		</tr>
+	<% } %>
+</table>
+
+<%= $.View("//survey/views/question/question_footer.ejs", {}) %>
+
+

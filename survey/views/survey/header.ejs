@@ -1,0 +1,13 @@
+<div id="surveyheader">
+	<% if (exitText != null && exitText !== ''){ %>
+		<button id="<%= exitID %>"><%= exitText %><br /></button>	
+	<% } %>
+
+	<% if (survey.showWhoFor) { %>
+		<%= MESSAGES.PROBAND_PREFIX %> <u><%= survey.proband_name %></u>
+	<% } %>
+	<h1 id="survey_title"><%= survey.title %></h1>
+	<div id="ajax-busy" class="hidden"></div>
+	<h3 id="survey_subtitle"><%= survey.description %></h3>
+</div>
+

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<Survey>
+    <id>Sample Survey</id>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:indivo="http://indivo.org/vocab/#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns="http://indivo.org/survey/vocab#"
+             xml:base="http://surveys.indivo.org/sample/">
+             
+	<Survey rdf:about="MySampleSurvey">
+	    <dc:title>Select Multiple Survey</dc:title>
+	    <introText>Welcome to the Select Multiple Survey. Please answer the following quesitons.</introText>
+	    <completedMessage>Thank you for submiting answers to my Select Multiple Survey.</completedMessage>
+	    <dc:creator>Me</dc:creator>
+	    <dc:date>10/04/2010</dc:date>
+	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
+	    <showDeIdentifiedMessage>false</showDeIdentifiedMessage>
+	    <surveyLine rdf:resource="#mainline" ></surveyLine>
+	</Survey>
+        
+	
+	<Line rdf:about="#mainline">
+		<rdf:li>
+		<SelectMultipleQuestion>
+		    <questionText>Select the fruits that you like.</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#fruits" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Apple</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/fruit#Apple"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Pear</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/fruit#Pear"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Banana</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/fruit#Banana"  />
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectMultipleQuestion>
+	    </rdf:li>
+	
+		<rdf:li>
+		<SelectMultipleQuestion>
+		    <questionText>What is your race? Check all that apply.</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/demographics#race" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Asian</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#Asian"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>American Indian/Alaskan Native</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#AmericanIndianOrAlaskanNative"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Black/African American</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#AfricanAmerican"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Native Hawaiian/Other Pacific Islander</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#NativeHawaiianOrOtherPacificIslander"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>White</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/demographics#Caucasian"  />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<TextAnswer>
+				    <answerLabel>Other.  Please Specify:</answerLabel>
+				</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectMultipleQuestion>
+	    </rdf:li>	    
+		
+	</Line>
+
+    </rdf:RDF>
+</Survey>

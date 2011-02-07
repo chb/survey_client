@@ -1,0 +1,9 @@
+<%= $.View("//survey/views/question/question_header.ejs", {question:question}) %>
+
+<div class="answers">
+	<%= $.View("//survey/views/question/SelectOneQuestion_" + question.displayType + ".ejs", {question:question, currentAnswer:currentAnswer}) %>
+</div>
+
+<%= $.View("//survey/views/question/question_footer.ejs", {}) %>
+
+

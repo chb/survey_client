@@ -1,0 +1,16 @@
+<%= $.View("//survey/views/question/question_header.ejs", {question:question}) %>
+
+<div class="answers">
+	<% for(var i=0; i<question.answers.length; i++) { %>
+		<div class="answer">
+			<input type="checkbox" class="answer-selector" 
+			<% if (question.answers[i].selected || (currentAnswer.choices && question.answers[i].matches(currentAnswer.choices[i]))) { %>
+				checked
+			<% } %>
+			/> 
+			<%= $.View("//survey/views/answer/genericAnswer.ejs", {answer:question.answers[i], currentAnswer:(currentAnswer.choices) ? currentAnswer.choices[i]: {}}) %>
+		</div>
+	<% } %>
+</div>
+
+<%= $.View("//survey/views/question/question_footer.ejs", {}) %>

@@ -1,0 +1,8 @@
+<% if (answer.length == 'long') { %>
+	<span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span>
+	<textarea class="answer-input" data-datatype="<%= answer.datatype %>" cols="80" rows="5" wrap="soft">
+		<%= (currentAnswer.text) ? currentAnswer.text : '' %>
+	</textarea>
+<% } else { %>
+	<span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span><%= answer.label %> <input type="text" class="answer-input" data-datatype="<%= answer.datatype %>" value="<%= (currentAnswer.text) ? currentAnswer.text : '' %>" /> <%= answer.note %>
+<% } %>

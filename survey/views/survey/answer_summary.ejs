@@ -1,0 +1,50 @@
+<% if (SURVEY.done_p) { %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
+<% } else { %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:MESSAGES.BUTTONS.SAVE_AND_EXIT, exitID:'exit-save'}) %>
+<% } %>
+
+<div id="surveybody">
+  <% if (!SURVEY.done_p) { %>
+    <h3><%= MESSAGES.ANSWER_SUMMARY_MESSAGE %></h3>
+  <% } %>
+
+  
+
+  <% if (!SURVEY.done_p) { %>
+    <p>
+      <button id="submit_answers" class="end-page-button"><%= MESSAGES.BUTTONS.ANSWERS_SUBMIT %></button>
+      <button id="previous" class="previous" value="previous"><%= MESSAGES.BUTTONS.BACK_TO_SURVEY %></button>
+    </p>
+  <% } else { %>
+    <p>
+      <button id="goto_end">Back</button>
+    </p>
+  <% } %>
+
+  <h4><%= MESSAGES.ANSWER_SUMMARY_HEADER %></h4>
+
+  <% for(var i=0; i<questions_and_answers.length; i++) { %>
+	  <div class="answer-summary" data-number="<%= i+1  %>">
+		  <p class="summary-question">
+			<%= (i+1) %>. <%= questions_and_answers[i].question %>
+			<% if (!SURVEY.done_p) { %> <a class="rewind" data-questionIndex="<%= i %>"><%= MESSAGES.BUTTONS.EDIT_ANSWER %></a> <% } %>
+		  </p> 
+		  <div class="summary-answer"><%= questions_and_answers[i].answer %></div> 
+	  </div>
+  <% } %>
+
+  <% if (!SURVEY.done_p) { %>
+    <p>
+      <button id="submit_answers" class="end-page-button"><%= MESSAGES.BUTTONS.ANSWERS_SUBMIT %></button>
+      <button id="previous" class="previous" value="previous"><%= MESSAGES.BUTTONS.BACK_TO_SURVEY %></button>
+    </p>
+  <% } else { %>
+    <p>
+      <button id="goto_end"><%= MESSAGES.BUTTONS.BACK %></button>
+    </p>
+  <% } %>
+  
+</div>
+
+<%= $.View("//survey/views/survey/footer.ejs", {survey:survey}) %>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<Survey>
+    <id>Sample Survey</id>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:indivo="http://indivo.org/vocab/#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns="http://indivo.org/survey/vocab#"
+             xml:base="http://surveys.indivo.org/sample/">
+             
+	<Survey rdf:about="MySampleSurvey">
+	    <dc:title>Select One Survey</dc:title>
+	    <introText>Welcome to the Select One Survey. Please answer the following quesitons.</introText>
+	    <completedMessage>Thank you for submiting answers to my Select One Survey.</completedMessage>
+	    <dc:creator>Me</dc:creator>
+	    <dc:date>10/04/2010</dc:date>
+	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
+	    <showDeIdentifiedMessage>false</showDeIdentifiedMessage>
+	    <surveyLine rdf:resource="#mainline" ></surveyLine>
+	</Survey>
+        
+	
+	<Line rdf:about="#mainline">
+		<rdf:li>
+		<SelectOneQuestion>
+		    <questionText>Are you male or female?</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/demographics#sex" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Male</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/general#Male" />
+				</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+				<LabelAnswer>
+				    <answerText>Female</answerText>
+				    <answerObject rdf:resource="http://myorganization.org/vocab/general#Female" />
+				</LabelAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+	    </rdf:li>
+	
+		<rdf:li>
+	    <SelectOneQuestion>
+		    <questionText>In general, would you say your health is:</questionText>
+		    <answerProperty rdf:resource="http://myorganization.org/vocab/general#health" />
+		    <questionAnswers>
+			<AnswerSequence>
+			    <rdf:li>
+					<LabelAnswer>
+						<answerText>Excellent</answerText>
+						<answerObject rdf:resource="http://myorganization.org/vocab/quality#excellent" />
+					</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+					<LabelAnswer>
+						<answerText>Very good</answerText>
+						<answerObject rdf:resource="http://myorganization.org/vocab/quality#veryGood" />
+					</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+					<LabelAnswer>
+						<answerText>Good</answerText>
+						<answerObject rdf:resource="http://myorganization.org/vocab/quality#good" />
+					</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+					<LabelAnswer>
+						<answerText>Fair</answerText>
+						<answerObject rdf:resource="http://myorganization.org/vocab/quality#fair" />
+					</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+					<LabelAnswer>
+						<answerText>Poor</answerText>
+						<answerObject rdf:resource="http://myorganization.org/vocab/quality#poor" />
+					</LabelAnswer>
+			    </rdf:li>
+			    <rdf:li>
+					<TextAnswer>
+						<answerLabel>Other.  Please Specify:</answerLabel>
+					</TextAnswer>
+			    </rdf:li>
+			</AnswerSequence>
+		    </questionAnswers>
+		</SelectOneQuestion>
+		</rdf:li>
+		
+	</Line>
+
+    </rdf:RDF>
+</Survey>

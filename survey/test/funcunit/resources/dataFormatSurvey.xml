@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Survey>
+    <id>Sample Survey</id>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:indivo="http://indivo.org/vocab/#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns="http://indivo.org/survey/vocab#"
+             xml:base="http://surveys.indivo.org/sample/">
+             
+	<Survey rdf:about="MySampleSurvey">
+	    <dc:title>Data Format Survey</dc:title>
+	    <introText>Welcome to the Data Format Survey. Please answer the following quesitons.</introText>
+	    <completedMessage>Thank you for submiting answers to my Data Format Survey.</completedMessage>
+	    <dc:creator>Me</dc:creator>
+	    <dc:date>10/04/2010</dc:date>
+	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
+	    <showDeIdentifiedMessage>false</showDeIdentifiedMessage>
+	    <surveyLine rdf:resource="#mainline" ></surveyLine>
+	</Survey>
+        
+	
+	<Line rdf:about="#mainline">
+		<rdf:li>
+			<SimpleQuestion>
+				<questionText>age?</questionText>
+				<questionAnswers>
+					<AnswerSequence>
+						<rdf:li>
+							<TextAnswer>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/demographics#age" ></answerProperty>
+								<datatype rdf:resource="xsd:integer" ></datatype>
+							</TextAnswer>
+						</rdf:li>
+					</AnswerSequence>
+				</questionAnswers>
+			</SimpleQuestion>
+		</rdf:li>
+		<rdf:li>
+			<SimpleQuestion>
+				<questionText>weight?</questionText>
+				<questionAnswers>
+					<AnswerSequence>
+						<rdf:li>
+							<TextAnswer>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/demographics#weight" ></answerProperty>
+								<datatype rdf:resource="xsd:decimal" ></datatype>
+							</TextAnswer>
+						</rdf:li>
+					</AnswerSequence>
+				</questionAnswers>
+			</SimpleQuestion>
+		</rdf:li>
+		<rdf:li>
+			<SimpleQuestion>
+				<questionText>date of birth?</questionText>
+				<questionAnswers>
+					<AnswerSequence>
+						<rdf:li>
+							<TextAnswer>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/demographics#dateOfBirth" ></answerProperty>
+								<datatype rdf:resource="xsd:date" ></datatype>
+							</TextAnswer>
+						</rdf:li>
+					</AnswerSequence>
+				</questionAnswers>
+			</SimpleQuestion>
+		</rdf:li>
+		
+	</Line>
+
+    </rdf:RDF>
+</Survey>

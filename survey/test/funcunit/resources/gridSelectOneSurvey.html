@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+   <head>       
+		<title>survey</title>
+   </head>
+   <body>
+	   <script type='text/javascript' src='../../../../steal/steal.js?survey,development'></script>    
+
+
+     <script language="javascript">
+          
+       // turn on admin options
+       // for some features that are not real security issues if a user
+       // somehow finds them, we simply use this JavaScript marker to decide.
+       // e.g. retaking a survey.
+       ADMIN = false;
+
+       // turn on or off transition messages
+       TRANSITIONS = false;
+       
+       //
+       ALLOW_EXIT = true;
+
+       var connector = {
+         get_survey: function(callback) {
+            $.get("gridSelectOneSurvey.xml", function(survey_raw) {
+              callback(survey_raw);
+            }, 'xml');
+         },
+
+         get_survey_metadata: function(callback) {
+            callback(null);
+         },
+
+
+         get_state: function(callback) {
+            callback(null);
+         },
+
+
+         get_answers: function(callback) {
+            callback(null);
+         },
+
+         save_state: function(survey, state, success, error) {
+            success();
+         },
+
+         save_answers: function(survey, answers, success, error) {
+            success();
+         }
+       };
+
+       $(document).ready(function() {
+		   OpenAjax.hub.publish('main.load', {'data_connector' : connector });
+		   $.progressBar.defaults.boxImage = 'resources/jquery.progressbar/images/progressbar.gif';
+		   $.progressBar.defaults.barImage = 'resources/jquery.progressbar/images/progressbg_green.gif';
+       });
+
+     </script>
+       
+       <!-- div tag for header -->
+       <div id="survey"></div>
+
+   </body>
+
+</html>

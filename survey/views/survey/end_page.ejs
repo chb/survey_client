@@ -1,0 +1,20 @@
+<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
+
+<div id="surveybody">
+	<div>
+		<button id="submit_answers" class="end-page-button"><%= MESSAGES.BUTTONS.ANSWERS_SUBMIT %></button>
+	</div>
+	
+	<% if (survey.reviewAnswers == "true") { %>
+		<div>
+			<button id="goto_answer_summary" class="end-page-button"><%= MESSAGES.BUTTONS.ANSWERS_REVIEW %></button>
+		</div>
+	<% } %>
+
+	<div>
+		<button id="previous" class="previous end-page-button" value="previous"><%= MESSAGES.BUTTONS.BACK_TO_SURVEY %></button>
+	</div>
+
+</div>
+
+<%= $.View("//survey/views/survey/footer.ejs", {survey:survey}) %>

@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<Survey>
+    <id>Sample Survey</id>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:indivo="http://indivo.org/vocab/#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns="http://indivo.org/survey/vocab#"
+             xml:base="http://surveys.indivo.org/sample/">
+             
+	<Survey rdf:about="MySampleSurvey">
+	    <dc:title>Grid Select One Survey</dc:title>
+	    <introText>Welcome to the Grid Select One Survey. Please answer the following quesitons.</introText>
+	    <completedMessage>Thank you for submiting answers to my Grid Select One Survey.</completedMessage>
+	    <dc:creator>Me</dc:creator>
+	    <dc:date>10/04/2010</dc:date>
+	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
+	    <showDeIdentifiedMessage>false</showDeIdentifiedMessage>
+	    <surveyLine rdf:resource="#mainline" ></surveyLine>
+	</Survey>
+        
+	
+	<Line rdf:about="#mainline">
+		<rdf:li>
+			<GridSelectOneQuestion>
+				<questionText>How often do you eat the following fruits?</questionText>
+				
+				<GridAnswers>
+					<AnswerSequence rdf:about="#frequencyScale">
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>Frequently</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/frequency#Frequently" />
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>Sometimes</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/frequency#Sometimes" />
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>Rarely</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/frequency#Rarely" />
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>Never</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/frequency#Never" />
+							</LabelAnswer>
+						</rdf:li>
+					</AnswerSequence>
+				</GridAnswers>
+				
+				<GridQuestions>
+					<QuestionSequence>
+					<rdf:li>
+						<SelectOneQuestion>
+							<questionText>apple</questionText>
+							<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#appleFrequency" />
+							<questionAnswers rdf:resource="#frequencyScale" />
+						</SelectOneQuestion>
+					</rdf:li>
+					<rdf:li>
+						<SelectOneQuestion>
+							<questionText>orange</questionText>
+							<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#orangeFrequency" />
+							<questionAnswers rdf:resource="#frequencyScale" />
+						</SelectOneQuestion>
+					</rdf:li>
+					<rdf:li>
+						<SelectOneQuestion>
+							<questionText>banana</questionText>
+							<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#bananaFrequency" />
+							<questionAnswers rdf:resource="#frequencyScale" />
+						</SelectOneQuestion>
+					</rdf:li>
+					</QuestionSequence>
+				</GridQuestions>
+				
+			</GridSelectOneQuestion>
+	    </rdf:li>
+	
+		<rdf:li>
+			<GridSelectOneQuestion>
+		    	<questionText>How much do you agree with the following statements?</questionText>
+				<GridAnswers>
+					<AnswerSequence rdf:about="#1292275182453Answers">
+		            	<rdf:li>
+							<LabelAnswer>
+		    					<answerText>strongly agree</answerText>
+		    					<answerObject rdf:resource="http://chip.org/vocab/AgreeStrongly" ></answerObject>
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+		    					<answerText>agree</answerText>
+		    					<answerObject rdf:resource="http://chip.org/vocab/Agree" ></answerObject>
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>neutral</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/Neutral" ></answerObject>
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>disagree</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/Disagree" ></answerObject>
+							</LabelAnswer>
+						</rdf:li>
+						<rdf:li>
+							<LabelAnswer>
+								<answerText>strongly disagree</answerText>
+								<answerObject rdf:resource="http://chip.org/vocab/DisagreeStrongly" ></answerObject>
+							</LabelAnswer>
+						</rdf:li>
+		    		</AnswerSequence>
+				</GridAnswers>
+				<GridQuestions>
+					<QuestionSequence>
+				        <rdf:li>
+							<SelectOneQuestion>
+								<questionText>I receive enough sleep each night</questionText>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#enoughSleep" ></answerProperty>
+								<displayType>list</displayType>
+								<questionAnswers rdf:resource="#1292275182453Answers" ></questionAnswers>
+							</SelectOneQuestion>
+						</rdf:li>
+						<rdf:li>
+							<SelectOneQuestion>
+								<questionText>I receive enough food each day</questionText>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#enoughFood" ></answerProperty>
+								<displayType>list</displayType>
+								<questionAnswers rdf:resource="#1292275182453Answers" ></questionAnswers>
+							</SelectOneQuestion>
+						</rdf:li>
+						<rdf:li>
+							<SelectOneQuestion>
+								<questionText>I receive enough gold each day</questionText>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#enoughGold" ></answerProperty>
+								<displayType>list</displayType>
+								<questionAnswers rdf:resource="#1292275182453Answers" ></questionAnswers>
+							</SelectOneQuestion>
+						</rdf:li>
+						<rdf:li>
+							<SelectOneQuestion>
+								<questionText>I receive enough oxygen each day</questionText>
+								<answerProperty rdf:resource="http://myorganization.org/vocab/MySampleSurvey#enoughOxygen" ></answerProperty>
+								<displayType>list</displayType>
+								<questionAnswers rdf:resource="#1292275182453Answers" ></questionAnswers>
+							</SelectOneQuestion>
+						</rdf:li>
+		    		</QuestionSequence>
+				</GridQuestions>
+			</GridSelectOneQuestion>
+		</rdf:li>
+	</Line>
+
+    </rdf:RDF>
+</Survey>
