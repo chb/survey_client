@@ -257,27 +257,35 @@ TextAnswerJSObject = AnswerJSObject.extend({
     },
 
     getValue: function(dom_element) {
-	var raw_answer = $(dom_element).find('.answer-input').val();
+  	  var raw_answer = $(dom_element).find('.answer-input').val();
+      
+      // make sure it's not empty
+      if ($.trim(raw_answer) == ""){
+        var error = new Error(MESSAGES.EMPTY_ANSWER);   
+        error.name = 'AnswerRequired';
+        error.el = $(dom_element).closest('.answer');
+        throw error;
+      }
+      
+      if (this.datatype === 'xsd:date' ){
+        //TODO: better way to handle this
+        // Grab the date from the datepicker if the text in the input field matches the date selected on the datepicker
+        if (raw_answer && raw_answer === $.datepicker.formatDate( MESSAGES.DATE_FORMAT, $(dom_element).find('.answer-input').datepicker('getDate'))) {
+          raw_answer = $.datepicker.formatDate( 'mm/dd/yy', $(dom_element).find('.answer-input').datepicker('getDate'));
+        }
+      }
 
-	// make sure it's not empty
-    if ($.trim(raw_answer) == ""){
-    	var error = new Error(MESSAGES.EMPTY_ANSWER);	
-		error.name = 'AnswerRequired';
-		error.el = $(dom_element).closest('.answer');
-		throw error;
-    }
+      // validate the text answer
+      if (this.datatype) {
+        var validation_message = VALIDATION[this.datatype](raw_answer);
+        if (validation_message != null) {
+          var error = new RangeError(validation_message);
+          error.el = dom_element;
+          throw error;
+        }
+      } 
 
-	// validate the text answer
-	if (this.datatype) {
-	    var validation_message = VALIDATION[this.datatype](raw_answer);
-	    if (validation_message != null) {
-			var error = new RangeError(validation_message);
-			error.el = dom_element;
-			throw error;
-	    }
-	} 
-
-	return this.getValueFromRaw(raw_answer);
+     return this.getValueFromRaw(raw_answer);
     },
 
     getValueFromRaw: function(raw) {

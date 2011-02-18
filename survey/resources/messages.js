@@ -40,18 +40,21 @@ var MESSAGES = {
 	PROBAND_INTRO: "This survey contains questions that pertain to",
 	PROBAND_PREFIX: "Survey for",
 	SURVEY_ALREADY_STARTED: "You have already started this survey. Please choose from the following:",
-	DE_IDENTIFIED_INTRO: "This survey collects <b><em>de-identified</em></b> data to protect your privacy.<br />Whenever you are prompted for a free-form text entry, be careful not to include your name.",
+	DE_IDENTIFIED_INTRO: "This survey collects <b><em>de-identified</em></b> data to protect your privacy.<br /> Whenever you are prompted for a free-form text entry, be careful not to include your name.",
 	DE_IDENTIFIED: "This survey collects <b>de-identified data</b>.<br /> Don't enter your name in any of the text fields.",
 	ANSWER_SUMMARY_MESSAGE: "Please review your answers and then submit them:",
 	ANSWER_SUMMARY_HEADER: "Summary of your Answers",
 	QUESTION_PREFIX: "Q. ",
 	SUCCESS: "Success",
 	ERROR: "Error",
+	DATE_DISPLAY_FORMAT: "mm/dd/yyyy",
+	DATE_FORMAT: "mm/dd/yy",
+	
 	
 	// Dialog Messages
 	DIALOG_YES: "Yes",
 	DIALOG_NO: "No",
-	ANSWER_CHANGE_WARNING: "Warning! Changing your answer will cause all future answers to be lost. Are you sure you want to do this?",
+	ANSWER_CHANGE_WARNING: "Warning! Changing your answers to this question clears answers you have already provided to later questions. Are you sure you want to do this?",
 	ANSWER_CHANGE_TITLE: "Change answer?",
 	
 	// Single Words

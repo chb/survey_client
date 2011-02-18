@@ -38,10 +38,10 @@ MainController = $.Controller.extend('Survey.Controllers.Main',{
 
 			data_connector.get_answers(function(answers) {
 				$('#loading').hide();
-				if (answers != null && answers.length > 0) {
+				if (answers != null && typeof answers != "string") {
 					SURVEY.answers = answers;
 					SURVEY.done_p = true;
-					OpenAjax.hub.publish('survey.done_page', params);
+					OpenAjax.hub.publish('survey.donePage', params);
 				} 
 				else {
 					if (state == null) {

@@ -166,6 +166,7 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 								$(this).dialog("close");
 							},
 							"No": function() {
+							    OpenAjax.hub.publish('question.show', {'questions': SURVEY.current_questions()});
 								$(this).dialog("close");
 							}
 						}
@@ -418,15 +419,25 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 	    Survey.Controllers.Survey.showAjaxLoader();
     	Survey.Controllers.Survey.disableButtons();
 
-
 		if(this.updateState(true, true, 'survey.exitAndSave')) {
     		this.exitAndSave();	
+    	}
+    	else {
+    		Survey.Controllers.Survey.hideAjaxLoader();
+    	    Survey.Controllers.Survey.enableButtons();
     	}
     },
     
     "survey.exitAndSave subscribe": function(ev, params) {
+    	Survey.Controllers.Survey.showAjaxLoader();
+    	Survey.Controllers.Survey.disableButtons();
+    	
     	if(this.updateState(true, false, 'survey.exitAndSave')) {
     		this.exitAndSave();	
+    	}
+    	else {
+    		Survey.Controllers.Survey.hideAjaxLoader();
+    	    Survey.Controllers.Survey.enableButtons();
     	}
     },
     

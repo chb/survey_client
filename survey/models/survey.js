@@ -5,29 +5,29 @@
 
 Survey = Class.extend({
     init: function(xml_document, metadata) {
-	if (metadata != null && metadata.length > 0) {
-	    this.digest = metadata.getElementsByTagName('Document')[0].getAttribute('digest');
-	    this.created_at = metadata.getElementsByTagName('Document')[0].getElementsByTagName('created')[0].getAttribute('at');
-	}
+		if (metadata != null && metadata.length > 0) {
+			this.digest = metadata.getElementsByTagName('Document')[0].getAttribute('digest');
+			this.created_at = metadata.getElementsByTagName('Document')[0].getElementsByTagName('created')[0].getAttribute('at');
+		}
 
-	this.store = new RDFIndexedFormula();
+		this.store = new RDFIndexedFormula();
 
-	var parser = new RDFParser(this.store);
+		var parser = new RDFParser(this.store);
 
-	// parse the document the right way if it can be parsed the right way
-	var root = null;
-	if (xml_document.getElementsByTagNameNS)
-	    root = xml_document.getElementsByTagNameNS('http://www.w3.org/1999/02/22-rdf-syntax-ns#','RDF')[0];
-	else
-	    root = xml_document.getElementsByTagName('rdf:RDF')[0];
+		// parse the document the right way if it can be parsed the right way
+		var root = null;
+		if (xml_document.getElementsByTagNameNS)
+			root = xml_document.getElementsByTagNameNS('http://www.w3.org/1999/02/22-rdf-syntax-ns#','RDF')[0];
+		else
+			root = xml_document.getElementsByTagName('rdf:RDF')[0];
 	
-	parser.parse(root, undefined, 'survey');
+		parser.parse(root, undefined, 'survey');
 
-	// find the URI of the survey
-	var uri = this.store.any(undefined, RDF.NS.rdf('type'), SurveyJSObject.TYPE);
+		// find the URI of the survey
+		var uri = this.store.any(undefined, RDF.NS.rdf('type'), SurveyJSObject.TYPE);
 
-	// instantiate it and go
-	this.survey = RDFJSObject.getObject(this.store, uri);
+		// instantiate it and go
+		this.survey = RDFJSObject.getObject(this.store, uri);
     },
 
     estimateNumQuestions: function() {
@@ -154,6 +154,22 @@ Survey = Class.extend({
 
 Survey.load = function(data_connector, callback) {
     data_connector.get_survey(function(survey_raw) {
+    // parse xml to see if it is valid.  Adapted from the W3Cschool's example
+	try {
+			if (window.DOMParser) {
+  				parser=new DOMParser();
+				xmlDoc=parser.parseFromString(survey_raw, "text/xml");
+  			}
+			else { 
+				// Internet Explorer  
+				xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+				xmlDoc.async="false";
+  				xlDoc.loadXML(survey_raw); 
+			}
+		}
+		catch (e) {
+			alert("bad survey definition");
+		}
 		data_connector.get_survey_metadata(function(meta_raw) {
 			var survey = new Survey(survey_raw, meta_raw);
 			callback(survey);

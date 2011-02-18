@@ -60,6 +60,11 @@
 		   OpenAjax.hub.publish('main.load', {'data_connector' : connector });
 		   $.progressBar.defaults.boxImage = 'resources/jquery.progressbar/images/progressbar.gif';
 		   $.progressBar.defaults.barImage = 'resources/jquery.progressbar/images/progressbg_green.gif';
+		   
+		   // show basic error message on ajax fails
+		   $('#survey').ajaxError(function(e, xhr, settings, exception) {
+				alert("Error while making call to " + settings.url + ": " + exception);
+			});
        });
 
      </script>
