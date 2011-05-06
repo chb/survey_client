@@ -25,6 +25,9 @@ steal.plugins(
     
     // messages 
     .resources("messages.js")
+    
+    // storage
+    .resources("jstorage.min.js")
 
     .models('rdfutils')
     .models('rdfjsobject')

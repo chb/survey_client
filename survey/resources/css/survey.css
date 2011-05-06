@@ -80,7 +80,7 @@ body {
 }
 
 #restore, #restart {
-  width: 19em;
+  width: 20em;
 }
 
 button {
@@ -171,9 +171,13 @@ button {
 	padding: 2px 5px;
 }
 
+.sub-question-title {
+	padding: 5px;
+}
+
 .sub-question-text {
 	font-weight: bold;	
-	padding-left: 5px;
+	padding: 0;
 }
 
 .sub-question.even-row {

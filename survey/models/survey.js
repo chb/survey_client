@@ -168,7 +168,7 @@ Survey.load = function(data_connector, callback) {
 			}
 		}
 		catch (e) {
-			alert("bad survey definition");
+			//alert("bad survey definition");
 		}
 		data_connector.get_survey_metadata(function(meta_raw) {
 			var survey = new Survey(survey_raw, meta_raw);

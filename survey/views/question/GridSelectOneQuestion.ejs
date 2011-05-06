@@ -11,7 +11,7 @@
 	</thead>
 	<% for(var i=0; i<question.questions.length; i++) { %>
 		<tr class="question sub-question <% if(i%2 == 0) { %> even-row <%}%>">
-			<td>
+			<td class="sub-question-title">
 				<span class="sub-question-text question-title"><span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span><%= question.questions[i].question %></span> 
 			</td>
 			<% for(var j=0; j<question.answers.length; j++) { %>

@@ -8,7 +8,7 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 {
 	onDocument: true,
     
-    showModalMessage: function(message, title) {
+    showModalMessage: function(message, title, success) {
     	$('#dialog-text').html(message);
     	$('#dialog').dialog({
     		title: title,
@@ -16,6 +16,9 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 			resizable: false,
 			buttons: {
 				Ok: function() {
+					if (success) {
+						success();
+					}
 					$(this).dialog("close");
 				}
 			}
@@ -136,12 +139,14 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 						// apply error styling
 						$(questionErrors[error].el).find('.answer-input').addClass('validation-error');
 						$(questionErrors[error].el).closest('.question-form').find('.question-title .ui-state-error').show();  //TODO: better way
-						$(questionErrors[error].el).closest('.answer').find('.ui-state-error').show();
+						$(questionErrors[error].el).closest('.answer').find('.ui-state-error').attr('title', questionErrors[error].message).show();
 				  	}
 				  	else if (questionErrors[error].name === 'AnswerRequired') {
 			  			// apply error styling
 			  			//TODO: styling will get applied even if we are ignoring all questions being empty, better way?
-				  		$(questionErrors[error].el).closest('.question').find('.question-title .ui-state-error').show();
+			  			if (!ignoreAllEmpty) {
+					  		$(questionErrors[error].el).closest('.question').find('.question-title .ui-state-error').attr('title', questionErrors[error].message).show();
+				  		}
 				  	}
 				  	else {
 				  		// throw all unexpected errors
@@ -399,7 +404,7 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 
 		// generate the XML for the answers document
 		// FIXME: should do proper XML generation
-		var answers_xml = "<SurveyAnswers surveydigest=\"";
+		var answers_xml = "<SurveyAnswers xmlns=\"http://indivo.org/vocab/xml/documents#\" surveydigest=\"";
 
 		// get the survey digest
 		answers_xml += SURVEY.digest;
@@ -443,11 +448,11 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
     
     exitAndSave: function() {
     	// save the state
-		this.saveState(this.save_state_success, this.save_state_error);
+		this.saveState(this.save_state_and_exit_success, this.save_state_error);
     },
     
     "#exit click": function(el, ev){
-      	window.location = '/';
+    	window.location.href = window.location.protocol + '//' + window.location.host + EXIT_PATH + window.location.search;
     },
     
     "#redo click": function(el, ev){
@@ -483,8 +488,13 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
     	Survey.Controllers.Survey.enableButtons();
     	Survey.Controllers.Survey.hideAjaxLoader();
 	    Survey.Controllers.Survey.showModalMessage(MESSAGES.SAVE_STATE_SUCCESS, MESSAGES.SUCCESS);
-	    SURVEY.existing_state = SURVEY.state.getEncodedAnswers(); //TODO: should pass through the success callback?
+	    SURVEY.existing_state = SURVEY.state.getEncodedAnswers(); 
 	    OpenAjax.hub.publish('survey.splashPage', {});
+    }, 
+    
+    save_state_and_exit_success: function(){
+    	Survey.Controllers.Survey.hideAjaxLoader();
+    	Survey.Controllers.Survey.showModalMessage(MESSAGES.SAVE_STATE_SUCCESS, MESSAGES.SUCCESS, function(){window.location = EXIT_PATH;});
     }, 
     
     save_answers_error: function(){

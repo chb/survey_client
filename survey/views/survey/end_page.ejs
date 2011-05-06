@@ -1,4 +1,8 @@
-<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
+<% if (ALLOW_EXIT) { %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:'Exit', exitID:'exit'}) %>
+<% } else {%>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
+<% } %>
 
 <div id="surveybody">
 	<div>

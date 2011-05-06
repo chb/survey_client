@@ -7,4 +7,5 @@ steal
  .then("selectMultiple_tests")
  .then("gridSelectOne_tests")
  .then("dataFormat_tests")
- .then("behavior_tests");
+ .then("behavior_tests")
+ .then("conditionalBranch_tests");

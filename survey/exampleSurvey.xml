@@ -10,12 +10,12 @@
              
 	<Survey rdf:about="MySampleSurvey">
 	    <dc:title>Example Survey</dc:title>
-	    <introText>Welcome to the example survey. Please answer the following quesitons.</introText>
+	    <introText>Welcome to the example survey. Please answer the following questions.</introText>
 	    <completedMessage>Thank you for submiting answers to my survey.</completedMessage>
 	    <dc:creator>Me</dc:creator>
 	    <dc:date>10/04/2010</dc:date>
 	    <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail>
-	    <showDeIdentifiedMessage>true</showDeIdentifiedMessage>
+	    <showDeIdentifiedMessage>false</showDeIdentifiedMessage>
 	    <surveyLine rdf:resource="#mainline" ></surveyLine>
 	    <reviewAnswers>true</reviewAnswers>
 	</Survey>
@@ -54,21 +54,7 @@
 	    </rdf:li>
 	</AnswerSequence>
         
-        <!-- Simple Question used by a Repeater -->
-	<SimpleQuestion rdf:about="#num-siblings">
-	    <questionText>How many siblings do you have?</questionText>
-	    <defaultAnswerForEstimation>1</defaultAnswerForEstimation>
-	    <questionAnswers>
-		<AnswerSequence>
-		    <rdf:li>
-			<TextAnswer>
-			    <datatype rdf:resource="xsd:integer" />
-			    <answerProperty rdf:resource="http://indivo.org/vocab/#num_siblings" />
-			</TextAnswer>
-		    </rdf:li>
-		</AnswerSequence>
-	    </questionAnswers>
-	</SimpleQuestion>
+    
         
 	<Line rdf:about="#mainline">
 	    <rdf:li>
@@ -97,20 +83,21 @@
 
 	    <rdf:li>
 		<ConditionalBranch>
-		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === "&lt;http://myorganization.org/vocab/general#Myself&gt;"</branchCondition>
+		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === '&lt;http://myorganization.org/vocab/general#Myself&gt;'</branchCondition>
 		    <line rdf:resource="selfLine" />
 		</ConditionalBranch>
 	    </rdf:li>
 
 	    <rdf:li>
 		<ConditionalBranch>
-		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === "&lt;http://myorganization.org/vocab/general#SomeoneElse&gt;"</branchCondition>
+		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === '&lt;http://myorganization.org/vocab/general#SomeoneElse&gt;'</branchCondition>
 		    <line rdf:resource="general" />
 		</ConditionalBranch>
 	    </rdf:li>
 	</Line>
 
 	<Line rdf:about="selfLine">
+		<dc:title>Self Line</dc:title>
 		<questionsPerPage>2</questionsPerPage>
 	    <rdf:li>
 		<SelectOneQuestion>
@@ -128,97 +115,14 @@
 	    </rdf:li>
 	    
 	    <rdf:li>
-		<!-- a repeater of questions, based on the answer to another question -->
-		<Repeater rdf:about="#sibling-repeater">
-		    <dc:title>Brothers and Sisters</dc:title>
-		    <connector rdf:resource="http://indivo.org/vocab/family#sibling" />
-
-		    <repeatConditionQuestion rdf:resource="#num-siblings" />
-
-		    <repeatCondition>{repeat_count} &lt; {O[http://indivo.org/vocab/#num_siblings]}[0]</repeatCondition>
-
-		    <line rdf:resource="#sibling-info" />
-
-		    <!-- parameter for the sibling info line, repeat_count is special -->
-		    <parameter>
-			<Parameter>
-			    <name>sibling_num</name>
-			    <value>{repeat_count}</value>
-			</Parameter>
-		    </parameter>
-
-		</Repeater>
-	    </rdf:li>
-	    
-	    <rdf:li>
 		<Branch>
 		    <line rdf:resource="general" ></line>
 		</Branch>
 	    </rdf:li>
 	</Line>
 
-
-	<Line rdf:about="#sibling-info">
-	    <dc:title>Sibling Information - #{sibling_num}</dc:title>
-	    <rdf:li>
-		<SimpleQuestion>
-		    <questionText>Please provide the sibling's initials:</questionText>
-		    <questionAnswers>
-			<AnswerSequence>
-			    <rdf:li>
-				<TextAnswer>
-				    <answerProperty rdf:resource="http://indivo.org/vocab/#initials" />
-				</TextAnswer>
-			    </rdf:li>
-			</AnswerSequence>
-		    </questionAnswers>
-		</SimpleQuestion>
-	    </rdf:li>
-
-	    <rdf:li>
-		<SelectOneQuestion>
-		    <questionText>Is this sibling:</questionText>
-		    <questionAnswers>
-			<AnswerSequence>
-			    <rdf:li>
-				<LabelAnswer>
-				    <answerText>a full sibling</answerText>
-				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
-				    <answerObject rdf:resource="http://indivo.org/vocab/#fullSibling" />
-				    <selected rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</selected>
-				</LabelAnswer>
-			    </rdf:li>
-
-			    <rdf:li>
-				<LabelAnswer>
-				    <answerText>a half sibling from the mother's side</answerText>
-				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
-				    <answerObject rdf:resource="http://indivo.org/vocab/#halfMaternalSibling" />
-				</LabelAnswer>
-			    </rdf:li>
-
-			    <rdf:li>
-				<LabelAnswer>
-				    <answerText>a half sibling from the father's side</answerText>
-				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
-				    <answerObject rdf:resource="http://indivo.org/vocab/#halfPaternalSibling" />
-				</LabelAnswer>
-			    </rdf:li>
-
-			    <rdf:li>
-				<LabelAnswer>
-				    <answerText>an adopted sibling or foster child</answerText>
-				    <answerProperty rdf:resource="http://indivo.org/vocab/#siblingType" />
-				    <answerObject rdf:resource="http://indivo.org/vocab/#adoptedOrFoster" />
-				</LabelAnswer>
-			    </rdf:li>
-			</AnswerSequence>
-		    </questionAnswers>
-		</SelectOneQuestion>
-	    </rdf:li>
-	</Line>
-
 	<Line rdf:about="general">
+		<dc:title>General</dc:title>
 		<questionsPerPage>2</questionsPerPage>
 	    <rdf:li>
 		<SelectOneQuestion>

@@ -25,6 +25,11 @@ var TEST_MESSAGES = {
 		INTRO_TEXT: "Welcome to the Data Format Survey. Please answer the following quesitons.",
 		COMPLETED: "Thank you for submiting answers to my Data Format Survey."
 	},
+	CONDITIONAL_BRANCH_SURVEY: {
+		TITLE: "Conditional Branch Survey",
+		INTRO_TEXT: "Welcome to the Conditional Branch Survey. Please answer the following quesitons.",
+		COMPLETED: "Thank you for submiting answers to my Conditional Branch Survey."
+	},
 	EXAMPLE_SURVEY: {
 		TITLE: "Example Survey",
 		INTRO_TEXT: "Welcome to the example survey. Please answer the following quesitons.",

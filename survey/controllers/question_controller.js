@@ -25,5 +25,7 @@ QuestionController = $.Controller.extend('Survey.Controllers.Question',
             	$(this).survey_answer();
             });
         }
+        
+        $('html, body').animate({scrollTop:0}, 0);
     }
 });
