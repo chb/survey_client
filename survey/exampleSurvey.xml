@@ -83,14 +83,54 @@
 
 	    <rdf:li>
 		<ConditionalBranch>
-		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === '&lt;http://myorganization.org/vocab/general#Myself&gt;'</branchCondition>
+		    <condition>
+				<Condition>
+					<leftOperand>
+						<Operand>
+								<value rdf:resource="http://myorganization.org/vocab/MySampleSurvey#whyTake" ></value>
+							<datatype>survey:predicate</datatype>
+						</Operand>
+					</leftOperand>
+					<operator>
+						<Operator>
+							<value>=</value>
+						</Operator>
+					</operator>
+					<rightOperand>
+						<Operand>
+								<value rdf:resource="http://myorganization.org/vocab/general#Myself" ></value>
+							<datatype>survey:object</datatype>
+						</Operand>
+					</rightOperand>
+				</Condition>
+			</condition>    
 		    <line rdf:resource="selfLine" />
 		</ConditionalBranch>
 	    </rdf:li>
 
 	    <rdf:li>
 		<ConditionalBranch>
-		    <branchCondition>{O[http://myorganization.org/vocab/MySampleSurvey#whyTake]}[0] === '&lt;http://myorganization.org/vocab/general#SomeoneElse&gt;'</branchCondition>
+		    <condition>
+				<Condition>
+					<leftOperand>
+						<Operand>
+								<value rdf:resource="http://myorganization.org/vocab/MySampleSurvey#whyTake" ></value>
+							<datatype>survey:predicate</datatype>
+						</Operand>
+					</leftOperand>
+					<operator>
+						<Operator>
+							<value>=</value>
+						</Operator>
+					</operator>
+					<rightOperand>
+						<Operand>
+								<value rdf:resource="http://myorganization.org/vocab/general#SomeoneElse" ></value>
+							<datatype>survey:object</datatype>
+						</Operand>
+					</rightOperand>
+				</Condition>
+			</condition>    
 		    <line rdf:resource="general" />
 		</ConditionalBranch>
 	    </rdf:li>
