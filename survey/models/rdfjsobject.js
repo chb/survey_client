@@ -655,56 +655,65 @@ OperatorJSObject = SurveyComponent.extend({
 		var leftTerm;
 		var rightTerm;
 		var result = false;  //TODO: no default?
+		var comparisonValue = null;
 		
-		switch (this.value) {
-			case '=':
-				leftTerm = this.getFirstTerm(leftValue);
-				rightTerm = this.getFirstTerm(rightValue);
-				if (leftTerm && rightTerm) {
-					var comparisonValue = this.compareTerms(leftTerm, rightTerm);
-                                        if(comparisonValue === 0) {
-                                                result = true;
-                                        }
-                                        else {
-                                                result = false;
-                                        }
-				}
-				break;
-			case '>':
-				leftTerm = this.getFirstTerm(leftValue);
-				rightTerm = this.getFirstTerm(rightValue);
-				if (leftTerm && rightTerm) {
-					var comparisonValue = this.compareTerms(leftTerm, rightTerm);
+		if (this.value === 'contains') {
+			// set operations TODO
+			
+		}
+		else {
+			// single value operations
+			leftTerm = this.getFirstTerm(leftValue);
+			rightTerm = this.getFirstTerm(rightValue);
+			if (leftTerm && rightTerm) {
+				comparisonValue = this.compareTerms(leftTerm, rightTerm);
+			}
+			
+			switch (this.value) {
+				case '=':
+					if(comparisonValue === 0) {
+						result = true;
+					}
+					else {
+						result = false;
+					}
+					break;
+				case '>':
 					if(comparisonValue > 0) {
 						result = true;
 					}
 					else {
 						result = false;
 					}
-				}
-				else {
-					result = false;  //TODO: is this the correct default for empty null values?
-				}
-				break;
-			case '<':	
-				leftTerm = this.getFirstTerm(leftValue);
-				rightTerm = this.getFirstTerm(rightValue);
-				if (leftTerm && rightTerm) {
-					var comparisonValue = this.compareTerms(leftTerm, rightTerm);
+					break;
+				case '>=':
+					if(comparisonValue >= 0) {
+						result = true;
+					}
+					else {
+						result = false;
+					}
+					break;
+				case '<':	
 					if(comparisonValue < 0) {
 						result = true;
 					}
 					else {
 						result = false;
 					}
-				}
-				else {
-					result = false;  //TODO: is this the correct default for empty null values?
-				}
-				break;
-			default:
-				alert("unsupported operator: " + this.value);
-				break;
+					break;
+				case '<=':	
+					if(comparisonValue <= 0) {
+						result = true;
+					}
+					else {
+						result = false;
+					}
+					break;
+				default:
+					alert("unsupported operator: " + this.value);
+					break;
+			}
 		}
 		
 		return new RDFLiteral(result.toString(), '', RDF.Symbol.XSDboolean);
