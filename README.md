@@ -9,6 +9,12 @@
   * [jQuery](http://jquery.com/) & [jQuery UI](http://jqueryui.com/)
 * Consumes RDF/XML survey definitions as described [here](http://wiki.chip.org/indivo/index.php/Survey_RDF_Model)
 
+### Download
+1. <code>git clone git://github.com/chb/survey_client.git</code>
+2. <code>cd survey_client</code>
+3. <code>git submodule init</code>
+4. <code>git submodule update</code>
+
 ### Sample Survey
 View a sample survey by opening <code>survey_client/survey/exampleSurvey.html</code> in your favorite browser
 
