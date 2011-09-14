@@ -658,8 +658,18 @@ OperatorJSObject = SurveyComponent.extend({
 		var comparisonValue = null;
 		
 		if (this.value === 'contains') {
-			// set operations TODO
-			
+			result = false;
+			rightTerm = this.getFirstTerm(rightValue);
+			for (var i=0; i<leftValue.length; i++ ){
+				// loop through the set of terms
+				leftTerm = this.getFirstTerm(leftValue[i]);
+				if (leftTerm && rightTerm) {
+					comparisonValue = this.compareTerms(leftTerm, rightTerm);
+				}
+				if(comparisonValue === 0) {
+					result = true;
+				}
+			}
 		}
 		else {
 			// single value operations
