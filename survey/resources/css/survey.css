@@ -162,6 +162,10 @@ button {
 	cursor: pointer;
 }
 
+.answer-text .answer-label, .answer-text .answer-note {
+	cursor: default;
+}
+
 .grid {
 	border-collapse: collapse;
 	margin-top: 10px;

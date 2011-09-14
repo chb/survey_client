@@ -1,8 +1,10 @@
 <% if (answer.length == 'long') { %>
 	<span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span>
+	<p class="answer-label"><%= answer.label %></p>
 	<textarea class="answer-input" data-datatype="<% if (answer.datatype) { %><%= answer.datatype.uri %><%}%>" cols="80" rows="5" wrap="soft">
 		<%= (currentAnswer.text) ? currentAnswer.text : '' %>
 	</textarea>
+	<p class="answer-note"><%= answer.note %></p>
 <% } else { %>
-	<span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span><%= answer.label %> <input type="text" class="answer-input" data-datatype="<% if (answer.datatype) { %><%= answer.datatype.uri %><%}%>" value="<%= (currentAnswer.text) ? currentAnswer.text : '' %>" /> <%= answer.note %>
+	<span class="ui-state-error"><span class="ui-icon ui-icon-alert"></span></span><span class="answer-label"><%= answer.label %></span><input type="text" class="answer-input" data-datatype="<% if (answer.datatype) { %><%= answer.datatype.uri %><%}%>" value="<%= (currentAnswer.text) ? currentAnswer.text : '' %>" /><span class="answer-note"><%= answer.note %></span>
 <% } %>
