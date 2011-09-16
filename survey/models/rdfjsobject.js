@@ -671,6 +671,20 @@ OperatorJSObject = SurveyComponent.extend({
 				}
 			}
 		}
+		else if (this.value === '!contains') {
+			result = true;
+			rightTerm = this.getFirstTerm(rightValue);
+			for (var i=0; i<leftValue.length; i++ ){
+				// loop through the set of terms
+				leftTerm = this.getFirstTerm(leftValue[i]);
+				if (leftTerm && rightTerm) {
+					comparisonValue = this.compareTerms(leftTerm, rightTerm);
+				}
+				if(comparisonValue === 0) {
+					result = false;
+				}
+			}
+		}
 		else {
 			// single value operations
 			leftTerm = this.getFirstTerm(leftValue);
@@ -682,6 +696,14 @@ OperatorJSObject = SurveyComponent.extend({
 			switch (this.value) {
 				case '=':
 					if(comparisonValue === 0) {
+						result = true;
+					}
+					else {
+						result = false;
+					}
+					break;
+				case '!=':
+					if(comparisonValue !== 0) {
 						result = true;
 					}
 					else {
