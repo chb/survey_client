@@ -710,7 +710,7 @@ OperatorJSObject = SurveyComponent.extend({
 						result = false;
 					}
 					break;
-				case '>':
+				case '&gt;':
 					if(comparisonValue > 0) {
 						result = true;
 					}
@@ -718,7 +718,7 @@ OperatorJSObject = SurveyComponent.extend({
 						result = false;
 					}
 					break;
-				case '>=':
+				case '&gt;=':
 					if(comparisonValue >= 0) {
 						result = true;
 					}
@@ -726,7 +726,7 @@ OperatorJSObject = SurveyComponent.extend({
 						result = false;
 					}
 					break;
-				case '<':	
+				case '&lt;':	
 					if(comparisonValue < 0) {
 						result = true;
 					}
@@ -734,7 +734,7 @@ OperatorJSObject = SurveyComponent.extend({
 						result = false;
 					}
 					break;
-				case '<=':	
+				case '&lt;=':	
 					if(comparisonValue <= 0) {
 						result = true;
 					}
