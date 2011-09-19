@@ -801,6 +801,17 @@ OperatorJSObject = SurveyComponent.extend({
 							}
 						}
 					}
+					else if (leftTerm.datatype.sameTerm(RDF.Symbol.XSDboolean)) {
+						// compare Booleans TODO: error handling on bad values
+						var leftBoolean = Boolean(leftTerm.value);
+						var rightBoolean = Boolean(rightTerm.value);
+						if (leftBoolean && rightBoolean) {
+							result = 0
+						}
+						else {
+							result = -1;
+						}
+					}
 					else if (leftTerm.datatype.sameTerm(RDF.Symbol.XSDdate)) {
 						// TODO: refactor to remove duplicate code
 						// compare Dates
@@ -821,7 +832,7 @@ OperatorJSObject = SurveyComponent.extend({
 					}
 					else {
 						// unsupported datatype
-						alert("unsupported datatype for comparison: " + leftTerm.dataType.toString());
+						alert("unsupported datatype for comparison: " + leftTerm.datatype.toString());
 					}
 				}
 				else {
