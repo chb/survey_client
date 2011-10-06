@@ -31,7 +31,7 @@ RDFJSObject = Class.extend({
         object = RDFJSObject.getObject(store, statement.object);
       }
 
-			if (object) {
+			if (typeof object !== 'undefined') {
 	      // TODO: allow multiples values for a given predicate and a given subject
 	      if (self.propertyContainer[statement.predicate] == null) {
 	        self.propertyContainer[statement.predicate] = [];
