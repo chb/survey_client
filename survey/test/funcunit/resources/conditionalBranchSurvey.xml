@@ -1,5 +1,5 @@
 <Survey xmlns="http://indivo.org/vocab/xml/documents#">
-	<id>  </id>
+	<id>    </id>
     <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
                xmlns:survey="http://indivo.org/survey/vocab#"
@@ -10,23 +10,24 @@
         <Survey rdf:about="1">
 			 <dc:title>Conditional Branch Survey</dc:title> 
 			 <dc:creator>Me</dc:creator> 
-			<dc:date>4/26/2011</dc:date>
-			 <contactEMail rdf:resource="mailto:me@theinternet.org">Survey Support</contactEMail> 
+			<dc:date>10/12/2011</dc:date>
+			 <contactEMail rdf:resource="mailto:Survey Support">Survey Support</contactEMail> 
 			<surveyLine rdf:resource="#mainline" ></surveyLine>
 			 <introText>Welcome to the ConditionalBranch Survey. Please answer the following quesitons.</introText> 
 			 <completedMessage>Thank you for submiting answers to my ConditionalBranch Survey.</completedMessage> 
 			 <reviewAnswers>true</reviewAnswers> 
         </Survey>
             <Line rdf:about="#mainline">
+        <internalName>Main Section</internalName>
         <dc:title>Main Section</dc:title>
         <rdf:li>
     <SimpleQuestion>
         <questionText>Please enter an integer</questionText>
+        <answerProperty rdf:resource="#integer" ></answerProperty>
     <questionAnswers>
         <AnswerSequence>
           <rdf:li>
             <TextAnswer>
-                    <answerProperty rdf:resource="#integer" ></answerProperty>
                     <datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer" ></datatype>
             </TextAnswer>
           </rdf:li>
@@ -52,7 +53,7 @@
 			<rightOperand>
 				<Operand>
 						<value>5</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -72,13 +73,13 @@
 			</leftOperand>
 			<operator>
 				<Operator>
-					<value>&gt;</value>
+					<value>gt</value>
 				</Operator>
 			</operator>
 			<rightOperand>
 				<Operand>
 						<value>5</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -98,13 +99,13 @@
 			</leftOperand>
 			<operator>
 				<Operator>
-					<value>&lt;</value>
+					<value>lt</value>
 				</Operator>
 			</operator>
 			<rightOperand>
 				<Operand>
 						<value>5</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -115,11 +116,11 @@
     <rdf:li>
     <SimpleQuestion>
         <questionText>Please enter a date</questionText>
+        <answerProperty rdf:resource="#date" ></answerProperty>
     <questionAnswers>
         <AnswerSequence>
           <rdf:li>
             <TextAnswer>
-                    <answerProperty rdf:resource="#date" ></answerProperty>
                     <datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date" ></datatype>
             </TextAnswer>
           </rdf:li>
@@ -145,7 +146,7 @@
 			<rightOperand>
 				<Operand>
 						<value>01/01/2011</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -165,13 +166,13 @@
 			</leftOperand>
 			<operator>
 				<Operator>
-					<value>&gt;</value>
+					<value>gt</value>
 				</Operator>
 			</operator>
 			<rightOperand>
 				<Operand>
 						<value>01/01/2011</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -191,13 +192,13 @@
 			</leftOperand>
 			<operator>
 				<Operator>
-					<value>&lt;</value>
+					<value>lt</value>
 				</Operator>
 			</operator>
 			<rightOperand>
 				<Operand>
 						<value>01/01/2011</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -205,14 +206,14 @@
 	<line rdf:resource="new-section1303843557103" ></line>
 </ConditionalBranch>
 </rdf:li>
-<rdf:li>
+    <rdf:li>
     <SimpleQuestion>
         <questionText>Please enter a decimal</questionText>
+        <answerProperty rdf:resource="#decimal" ></answerProperty>
     <questionAnswers>
         <AnswerSequence>
           <rdf:li>
             <TextAnswer>
-                    <answerProperty rdf:resource="#decimal" ></answerProperty>
                     <datatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal" ></datatype>
             </TextAnswer>
           </rdf:li>
@@ -238,7 +239,7 @@
 			<rightOperand>
 				<Operand>
 						<value>3.14</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -258,13 +259,13 @@
 			</leftOperand>
 			<operator>
 				<Operator>
-					<value>&gt;</value>
+					<value>gt</value>
 				</Operator>
 			</operator>
 			<rightOperand>
 				<Operand>
 						<value>3.14</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -284,13 +285,13 @@
 			</leftOperand>
 			<operator>
 				<Operator>
-					<value>&lt;</value>
+					<value>lt</value>
 				</Operator>
 			</operator>
 			<rightOperand>
 				<Operand>
 						<value>3.14</value>
-					<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+						<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -298,23 +299,23 @@
 	<line rdf:resource="new-section1303911856205" ></line>
 </ConditionalBranch>
 </rdf:li>
-<rdf:li>
+    <rdf:li>
     <SelectOneQuestion>
         <questionText>select one</questionText>
         <answerProperty rdf:resource="#selectOne" ></answerProperty>
         <displayType>list</displayType>
 		<questionAnswers>
 			<AnswerSequence>
-				<rdf:li>
+			        <rdf:li>
     <LabelAnswer>
         <answerText>apple</answerText>
-        <answerObject rdf:resource="#apple"></answerObject>
+	        <answerObject rdf:resource="#apple"></answerObject>
 </LabelAnswer>
 </rdf:li>
     <rdf:li>
     <LabelAnswer>
         <answerText>orange</answerText>
-        <answerObject rdf:resource="#orange"></answerObject>
+	        <answerObject rdf:resource="#orange"></answerObject>
 </LabelAnswer>
 </rdf:li>
 			</AnswerSequence>
@@ -338,8 +339,8 @@
 			</operator>
 			<rightOperand>
 				<Operand>
-					<value rdf:resource="#apple" ></value>
-					<datatype>survey:object</datatype>
+							<value rdf:resource="#apple"></value>
+							<datatype>survey:object</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -364,8 +365,8 @@
 			</operator>
 			<rightOperand>
 				<Operand>
-					<value rdf:resource="#orange" ></value>
-					<datatype>survey:object</datatype>
+							<value rdf:resource="#orange"></value>
+							<datatype>survey:object</datatype>
 				</Operand>
 			</rightOperand>
 		</Condition>
@@ -373,10 +374,185 @@
 	<line rdf:resource="new-section1303914006564" ></line>
 </ConditionalBranch>
 </rdf:li>
+    <rdf:li>
+    <SelectOneQuestion>
+        <questionText>Please select yes or no</questionText>
+        <answerProperty rdf:resource="#yesOrNo" ></answerProperty>
+		<questionAnswers>
+			<AnswerSequence>
+			        <rdf:li>
+    <LabelAnswer>
+        <answerText>yes</answerText>
+        	<answerObject rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</answerObject>
+</LabelAnswer>
+</rdf:li>
+    <rdf:li>
+    <LabelAnswer>
+        <answerText>no</answerText>
+        	<answerObject rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</answerObject>
+</LabelAnswer>
+</rdf:li>
+			</AnswerSequence>
+	    </questionAnswers>
+</SelectOneQuestion>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+			<leftOperand>
+				<Operand>
+						<value rdf:resource="#yesOrNo" ></value>
+					<datatype>survey:predicate</datatype>
+				</Operand>
+			</leftOperand>
+			<operator>
+				<Operator>
+					<value>=</value>
+				</Operator>
+			</operator>
+			<rightOperand>
+				<Operand>
+							<value>true</value>
+							<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+				</Operand>
+			</rightOperand>
+		</Condition>
+	</condition>    
+	<line rdf:resource="new-sectiond1d06dbe-2473-45b8-b19e-375d50f46cb4" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+			<leftOperand>
+				<Operand>
+						<value rdf:resource="#yesOrNo" ></value>
+					<datatype>survey:predicate</datatype>
+				</Operand>
+			</leftOperand>
+			<operator>
+				<Operator>
+					<value>=</value>
+				</Operator>
+			</operator>
+			<rightOperand>
+				<Operand>
+							<value>false</value>
+							<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+				</Operand>
+			</rightOperand>
+		</Condition>
+	</condition>    
+	<line rdf:resource="new-section21355acf-6bc7-4ee2-a388-8f496eabd443" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>Please select many</questionText>
+        <answerProperty rdf:resource="#selectMany" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>Alaska</answerText>
+	        <answerObject rdf:resource="alaska"></answerObject>
+</LabelAnswer>
+</rdf:li>
+    <rdf:li>
+    <LabelAnswer>
+        <answerText>Hawaii</answerText>
+	        <answerObject rdf:resource="hawaii"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+			<leftOperand>
+				<Operand>
+						<value rdf:resource="#selectMany" ></value>
+					<datatype>survey:predicate</datatype>
+				</Operand>
+			</leftOperand>
+			<operator>
+				<Operator>
+					<value>contains</value>
+				</Operator>
+			</operator>
+			<rightOperand>
+				<Operand>
+							<value rdf:resource="alaska"></value>
+							<datatype>survey:object</datatype>
+				</Operand>
+			</rightOperand>
+		</Condition>
+	</condition>    
+	<line rdf:resource="new-section4c3db992-7795-45e9-8f75-a18050d6f6c8" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+			<leftOperand>
+				<Operand>
+						<value rdf:resource="#selectMany" ></value>
+					<datatype>survey:predicate</datatype>
+				</Operand>
+			</leftOperand>
+			<operator>
+				<Operator>
+					<value>contains</value>
+				</Operator>
+			</operator>
+			<rightOperand>
+				<Operand>
+							<value rdf:resource="hawaii"></value>
+							<datatype>survey:object</datatype>
+				</Operand>
+			</rightOperand>
+		</Condition>
+	</condition>    
+	<line rdf:resource="new-section05bf4322-41d9-47de-9aba-ac20a6059fb2" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+			<leftOperand>
+				<Operand>
+						<value rdf:resource="#selectMany" ></value>
+					<datatype>survey:predicate</datatype>
+				</Operand>
+			</leftOperand>
+			<operator>
+				<Operator>
+					<value>!contains</value>
+				</Operator>
+			</operator>
+			<rightOperand>
+				<Operand>
+							<value rdf:resource="hawaii"></value>
+							<datatype>survey:object</datatype>
+				</Operand>
+			</rightOperand>
+		</Condition>
+	</condition>    
+	<line rdf:resource="new-sectionf0a16499-eb19-4441-9f47-0c2bc9688ce4" ></line>
+</ConditionalBranch>
+</rdf:li>
 </Line>
             <Line rdf:about="new-section1303841442305">
+        <internalName>integer equal to 5</internalName>
         <dc:title>integer equal to 5</dc:title>
-	<rdf:li>
+        <rdf:li>
     <SelectMultipleQuestion>
         <questionText>junk question</questionText>
         <answerProperty rdf:resource="#junk" ></answerProperty>
@@ -385,7 +561,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -394,8 +570,9 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303841561986">
+        <internalName>integer greater than 5</internalName>
         <dc:title>integer greater than 5</dc:title>
-	<rdf:li>
+        <rdf:li>
     <SelectMultipleQuestion>
         <questionText>junk question</questionText>
         <answerProperty rdf:resource="#junk" ></answerProperty>
@@ -404,7 +581,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -413,8 +590,9 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303841562959">
+        <internalName>integer less than 5</internalName>
         <dc:title>integer less than 5</dc:title>
-	<rdf:li>
+        <rdf:li>
     <SelectMultipleQuestion>
         <questionText>junk question</questionText>
         <answerProperty rdf:resource="#junk" ></answerProperty>
@@ -423,7 +601,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -432,8 +610,9 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303843556249">
+        <internalName>date equal to 01/01/2011</internalName>
         <dc:title>date equal to 01/01/2011</dc:title>
-	<rdf:li>
+        <rdf:li>
     <SelectMultipleQuestion>
         <questionText>junk question</questionText>
         <answerProperty rdf:resource="#junk" ></answerProperty>
@@ -442,7 +621,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -451,8 +630,9 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303843557103">
+        <internalName>date less than 01/01/2011</internalName>
         <dc:title>date less than 01/01/2011</dc:title>
-	<rdf:li>
+        <rdf:li>
     <SelectMultipleQuestion>
         <questionText>junk question</questionText>
         <answerProperty rdf:resource="#junk" ></answerProperty>
@@ -461,7 +641,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -470,8 +650,9 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303843557863">
+        <internalName>date greater than 01/01/2011</internalName>
         <dc:title>date greater than 01/01/2011</dc:title>
-	<rdf:li>
+        <rdf:li>
     <SelectMultipleQuestion>
         <questionText>junk question</questionText>
         <answerProperty rdf:resource="#junk" ></answerProperty>
@@ -480,7 +661,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -488,7 +669,8 @@
 </SelectMultipleQuestion>
 </rdf:li>
 </Line>
-<Line rdf:about="new-section1303911853812">
+            <Line rdf:about="new-section1303911853812">
+        <internalName>decimal equal to 3.14</internalName>
         <dc:title>decimal equal to 3.14</dc:title>
         <rdf:li>
     <SelectMultipleQuestion>
@@ -496,10 +678,10 @@
         <answerProperty rdf:resource="#junk" ></answerProperty>
     <questionAnswers>
         <AnswerSequence>
-		<rdf:li>
+                <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -508,6 +690,7 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303911854909">
+        <internalName>decimal greater than 3.14</internalName>
         <dc:title>decimal greater than 3.14</dc:title>
         <rdf:li>
     <SelectMultipleQuestion>
@@ -517,7 +700,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -526,6 +709,7 @@
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303911856205">
+        <internalName>decimal less than 3.14</internalName>
         <dc:title>decimal less than 3.14</dc:title>
         <rdf:li>
     <SelectMultipleQuestion>
@@ -535,7 +719,7 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -543,7 +727,8 @@
 </SelectMultipleQuestion>
 </rdf:li>
 </Line>
- <Line rdf:about="new-section1303913997207">
+            <Line rdf:about="new-section1303913997207">
+        <internalName>apple selected</internalName>
         <dc:title>apple selected</dc:title>
         <rdf:li>
     <SelectMultipleQuestion>
@@ -551,19 +736,19 @@
         <answerProperty rdf:resource="#junk" ></answerProperty>
     <questionAnswers>
         <AnswerSequence>
-		<rdf:li>
+                <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
 </LabelAnswer>
 </rdf:li>
-
         </AnswerSequence>
     </questionAnswers>
 </SelectMultipleQuestion>
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303914006564">
+        <internalName>orange selected</internalName>
         <dc:title>orange selected</dc:title>
         <rdf:li>
     <SelectMultipleQuestion>
@@ -573,7 +758,107 @@
                 <rdf:li>
     <LabelAnswer>
         <answerText>select me</answerText>
-        <answerObject rdf:resource="#selectMe"></answerObject>
+	        <answerObject rdf:resource="#selectMe"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-sectiond1d06dbe-2473-45b8-b19e-375d50f46cb4">
+        <internalName>yes selected</internalName>
+        <dc:title>yes selected</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>yes was selected</questionText>
+        <answerProperty rdf:resource="#yesJunk" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section21355acf-6bc7-4ee2-a388-8f496eabd443">
+        <internalName>no selected</internalName>
+        <dc:title>no selected</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>no was selected</questionText>
+        <answerProperty rdf:resource="#noJunk" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section4c3db992-7795-45e9-8f75-a18050d6f6c8">
+        <internalName>alaska selected</internalName>
+        <dc:title>alaska selected</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>alaska was selected</questionText>
+        <answerProperty rdf:resource="alaskaJunk" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section05bf4322-41d9-47de-9aba-ac20a6059fb2">
+        <internalName>hawaii selected</internalName>
+        <dc:title>hawaii selected</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>hawaii was selected</questionText>
+        <answerProperty rdf:resource="hawaiiJunk" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-sectionf0a16499-eb19-4441-9f47-0c2bc9688ce4">
+        <internalName>no hawaii</internalName>
+        <dc:title>no hawaii</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>no hawaii</questionText>
+        <answerProperty rdf:resource="noHawaiiJunk" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
 </LabelAnswer>
 </rdf:li>
         </AnswerSequence>
@@ -583,4 +868,3 @@
 </Line>
     </rdf:RDF>
 </Survey>
-

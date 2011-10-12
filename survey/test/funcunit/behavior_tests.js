@@ -68,6 +68,10 @@ test("Warn On Answer Change", function(){
 		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "Which best describes why you are taking this survey?");
 	});
 	
+	// change our answer and hit next
+	S('#question_1 .answer:last .answer-selector').click();
+	S('#next').click();
+	
 	// hit next, and select yes on dialog
 	S('#next').click();
 	S('#dialog').visible();

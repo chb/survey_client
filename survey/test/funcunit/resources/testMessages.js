@@ -34,7 +34,7 @@ var TEST_MESSAGES = {
 		TITLE: "Example Survey",
 		INTRO_TEXT: "Welcome to the example survey. Please answer the following quesitons.",
 		COMPLETED: "Thank you for submiting answers to my survey.",
-		DE_IDENTIFIED: "This survey collects de-identified data to protect your privacy.\nWhenever you are prompted for a free-form text entry, be careful not to include your name.",
+		DE_IDENTIFIED: "This survey collects de-identified data to protect your privacy. Whenever you are prompted for a free-form text entry, be careful not to include your name.",
 		CONTACT_EMAIL: "me@theinternet.org",
 		CONTACT_NAME: "Survey Support"
 	}

@@ -254,105 +254,92 @@ test("Object Branching", function(){
 	});
 	
 });
-	/*
-	// clear and enter negative integer
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("-1");
+
+test("Boolean Object Branching", function(){
+	// click next and wait for question to render
+	S('#next').click();
+	S('#questionnum').text('9',function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "Please select yes or no");
+	});
+	
+	// test yes
+	S('#question_1 .answer:first .answer-selector').click();
 	
 	// click next and wait for second question to render
 	S('#next').click();
-	S('#questionnum').text('2', function(){
-		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "weight?");
+	S('#questionnum').text('10', function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "yes was selected");
+		equals(S("#contextdetails").text(), "yes selected");
 	});
 	
 	// go back 
 	S('#previous').click();
 	S('#question_1').exists();
 	
-	// clear and enter zero
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("0");
+	// no
+	S('#question_1 .answer:last .answer-selector').click();
 	
-	// click next and wait for second question to render
+	// click next, select "yes" to change answer, and wait for second question to render
 	S('#next').click();
-	S('#questionnum').text('2', function(){
-		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "weight?");
-	}); */
-
-
-
-
-	
-/*	// clear and enter mixed text
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("13.a");
-	
-	// make sure dialog shows up when next is clicked with invalid input
-	S('#next').click();
-	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_DECIMAL);
-		S('.ui-dialog-buttonset .ui-button-text:first').click();
-	});
-	S('#dialog').invisible();
-	
-	// clear and enter positive decimal
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("1.2");
-	
-	// click next and wait for second question to render
-	S('#next').click();
-	S('#questionnum').text('3', function(){
-		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "date of birth?");
-	});
-	
-	// go back 
-	S('#previous').click();
-	S('#question_1').exists();
-	
-	// clear and enter negative decimal
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("-0.2098709");
-	
-	// click next and wait for second question to render
-	S('#next').click();
-	S('#questionnum').text('3', function(){
-		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "date of birth?");
-	});
-	
-	// go back 
-	S('#previous').click();
-	S('#question_1').exists();
-	
-	// clear and enter zero
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("0");
-	
-	// click next and wait for second question to render
-	S('#next').click();
-	S('#questionnum').text('3', function(){
-		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "date of birth?");
-	});
-	
-	// go back 
-	S('#previous').click();
-	S('#question_1').exists();
-	
-	// clear and enter integer
-	S('#question_1 .answer:first .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
-	equals(S('#question_1 .answer:first .answer-input').text(), "");
-	S('#question_1 .answer:first .answer-input').click().type("1");
-	
-	// click next and wait for second question to render
-	S('#next').click();
-	S('#questionnum').text('3', function(){
-		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "date of birth?");
+	S('#dialog').visible();
+	S('.ui-dialog-buttonset .ui-button-text:first').click();
+	S('#questionnum').text('10', function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "no was selected");
+		equals(S("#contextdetails").text(), "no selected");
 	});
 	
 });
-*/
+
+test("Contains/Does Not Contain Operator", function(){
+	// click next and wait for question to render
+	S('#next').click();
+	S('#questionnum').text('11',function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "Please select many");
+	});
+	
+	// test Alaska and Hawaii 
+	S('#question_1 .answer .answer-selector:first').click();
+	S('#question_1 .answer .answer-selector:last').click();
+	
+	// click next and wait for question to render
+	S('#next').click();
+	S('#questionnum').text('12', function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "alaska was selected");
+		equals(S("#contextdetails").text(), "alaska selected");
+	});
+	
+	// click next and wait for question to render
+	S('#next').click();
+	S('#questionnum').text('13', function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "hawaii was selected");
+		equals(S("#contextdetails").text(), "hawaii selected");
+	});
+	
+	// go back 
+	S('#previous').click();
+	S('#question_1').exists();
+	
+	// go back 
+	S('#previous').click();
+	S('#question_1').exists();
+	
+	// deselect hawaii
+	S('#question_1 .answer:last .answer-selector').click();
+	
+	// click next, select "yes" to change answer, and wait for question to render
+	S('#next').click();
+	S('#dialog').visible();
+	S('.ui-dialog-buttonset .ui-button-text:first').click();
+	S('#questionnum').text('12', function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "alaska was selected");
+		equals(S("#contextdetails").text(), "alaska selected");
+	});
+	
+	// click next and wait for question to render
+	S('#next').click();
+	S('#questionnum').text('13', function(){
+		equals(S("#question_1 .question-title").text(), CONSTANTS.QUESTION_PREFIX + "no hawaii");
+		equals(S("#contextdetails").text(), "no hawaii");
+	});
+	
+});
