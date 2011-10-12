@@ -803,9 +803,7 @@ OperatorJSObject = SurveyComponent.extend({
 					}
 					else if (leftTerm.datatype.sameTerm(RDF.Symbol.XSDboolean)) {
 						// compare Booleans TODO: error handling on bad values
-						var leftBoolean = Boolean(leftTerm.value);
-						var rightBoolean = Boolean(rightTerm.value);
-						if (leftBoolean && rightBoolean) {
+						if (leftTerm.sameTerm(rightTerm)) {
 							result = 0
 						}
 						else {
