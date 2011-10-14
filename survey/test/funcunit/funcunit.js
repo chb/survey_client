@@ -1,6 +1,6 @@
 steal
  .plugins("funcunit")
- .resources("testMessages.js", "constants.js")
+ .resources("testMessages.js", "constants.js", "testUtils.js")
  .then("//survey/resources/messages.js")
  .then("simpleQuestion_tests")
  .then("selectOne_tests")

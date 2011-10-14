@@ -560,7 +560,7 @@ ConditionalBranchJSObject = BranchJSObject.extend({
 	    }
 	}
 	if (this.condition) {
-		if (this.condition.evaluate(env, answer_graph).sameTerm(RDF.Literal.FALSE)) {
+		if (this.condition.getValue(env, answer_graph).sameTerm(RDF.Literal.FALSE)) {
 			return null;
 		}
 	}
@@ -594,7 +594,7 @@ ConditionJSObject = SurveyComponent.extend({
 		this.rightOperand = this.get_resource_object(RDF.NS.survey('rightOperand'));
 	},
 	    
-	evaluate: function(env, answer_graph) {
+	getValue: function(env, answer_graph) {
 		return this.operator.applyOperator(env, answer_graph, this.leftOperand, this.rightOperand);
 	}
 });
@@ -605,7 +605,7 @@ ConditionJSObject = SurveyComponent.extend({
  */
 OperandJSObject = SurveyComponent.extend({
 	set_attributes: function() {
-		this.condition = this.get_resource_object(RDF.NS.survey('condition'));
+		this.condition = this.get_resource_object(RDF.NS.survey('Condition'));
 		this.value = this.get_raw(RDF.NS.survey('value'));
 		
 		var datatype = this.get_value(RDF.NS.survey('datatype'));
@@ -656,7 +656,8 @@ OperatorJSObject = SurveyComponent.extend({
 		var rightTerm;
 		var result = false;  //TODO: no default?
 		var comparisonValue = null;
-		
+
+		//TODO: refactor		
 		if (this.value === 'contains') {
 			result = false;
 			rightTerm = this.getFirstTerm(rightValue);
@@ -683,6 +684,22 @@ OperatorJSObject = SurveyComponent.extend({
 				if(comparisonValue === 0) {
 					result = false;
 				}
+			}
+		}
+		else if (this.value === 'OR') {
+			if (leftValue.sameTerm(RDF.Literal.TRUE) || rightValue.sameTerm(RDF.Literal.TRUE)) {
+				result = true;
+			}
+			else {
+				result = false;
+			}
+		}
+		else if (this.value === 'AND') {
+			if (leftValue.sameTerm(RDF.Literal.TRUE) && rightValue.sameTerm(RDF.Literal.TRUE)) {
+				result = true;
+			}
+			else {
+				result = false;
 			}
 		}
 		else {

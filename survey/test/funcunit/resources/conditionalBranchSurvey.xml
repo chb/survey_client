@@ -1,5 +1,5 @@
 <Survey xmlns="http://indivo.org/vocab/xml/documents#">
-	<id>    </id>
+	<id>      </id>
     <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
                xmlns:survey="http://indivo.org/survey/vocab#"
@@ -10,7 +10,7 @@
         <Survey rdf:about="1">
 			 <dc:title>Conditional Branch Survey</dc:title> 
 			 <dc:creator>Me</dc:creator> 
-			<dc:date>10/12/2011</dc:date>
+			<dc:date>10/13/2011</dc:date>
 			 <contactEMail rdf:resource="mailto:Survey Support">Survey Support</contactEMail> 
 			<surveyLine rdf:resource="#mainline" ></surveyLine>
 			 <introText>Welcome to the ConditionalBranch Survey. Please answer the following quesitons.</introText> 
@@ -39,25 +39,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#integer" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>5</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#integer" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>5</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303841442305" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -65,25 +65,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#integer" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>gt</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>5</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#integer" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>gt</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>5</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303841561986" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -91,25 +91,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#integer" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>lt</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>5</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#integer" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>lt</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>5</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303841562959" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -132,25 +132,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#date" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>01/01/2011</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#date" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>01/01/2011</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303843556249" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -158,25 +158,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#date" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>gt</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>01/01/2011</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#date" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>gt</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>01/01/2011</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303843557863" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -184,25 +184,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#date" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>lt</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>01/01/2011</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#date" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>lt</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>01/01/2011</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#date</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303843557103" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -225,25 +225,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#decimal" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>3.14</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#decimal" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>3.14</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303911853812" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -251,25 +251,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#decimal" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>gt</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>3.14</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#decimal" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>gt</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>3.14</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303911854909" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -277,25 +277,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#decimal" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>lt</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-						<value>3.14</value>
-						<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#decimal" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>lt</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>3.14</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303911856205" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -326,25 +326,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#selectOne" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value rdf:resource="#apple"></value>
-							<datatype>survey:object</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#selectOne" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="#apple"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303913997207" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -352,25 +352,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#selectOne" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value rdf:resource="#orange"></value>
-							<datatype>survey:object</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#selectOne" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="#orange"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section1303914006564" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -400,25 +400,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#yesOrNo" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value>true</value>
-							<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#yesOrNo" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>true</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-sectiond1d06dbe-2473-45b8-b19e-375d50f46cb4" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -426,25 +426,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#yesOrNo" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>=</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value>false</value>
-							<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#yesOrNo" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>=</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+					<value>false</value>
+					<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section21355acf-6bc7-4ee2-a388-8f496eabd443" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -474,25 +474,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#selectMany" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>contains</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value rdf:resource="alaska"></value>
-							<datatype>survey:object</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#selectMany" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="alaska"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section4c3db992-7795-45e9-8f75-a18050d6f6c8" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -500,25 +500,25 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#selectMany" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>contains</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value rdf:resource="hawaii"></value>
-							<datatype>survey:object</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#selectMany" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="hawaii"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-section05bf4322-41d9-47de-9aba-ac20a6059fb2" ></line>
 </ConditionalBranch>
 </rdf:li>
@@ -526,27 +526,437 @@
     <ConditionalBranch>
 	<condition>
 		<Condition>
-			<leftOperand>
-				<Operand>
-						<value rdf:resource="#selectMany" ></value>
-					<datatype>survey:predicate</datatype>
-				</Operand>
-			</leftOperand>
-			<operator>
-				<Operator>
-					<value>!contains</value>
-				</Operator>
-			</operator>
-			<rightOperand>
-				<Operand>
-							<value rdf:resource="hawaii"></value>
-							<datatype>survey:object</datatype>
-				</Operand>
-			</rightOperand>
-		</Condition>
-	</condition>    
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="#selectMany" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>!contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="hawaii"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</condition>  
 	<line rdf:resource="new-sectionf0a16499-eb19-4441-9f47-0c2bc9688ce4" ></line>
 </ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>Select many things</questionText>
+        <answerProperty rdf:resource="selectManyThings1" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>apple</answerText>
+	        <answerObject rdf:resource="apple"></answerObject>
+</LabelAnswer>
+</rdf:li>
+    <rdf:li>
+    <LabelAnswer>
+        <answerText>yes</answerText>
+        	<answerObject rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</answerObject>
+</LabelAnswer>
+</rdf:li>
+    <rdf:li>
+    <TextAnswer>
+        <dataType rdf:resource="http://www.w3.org/2001/XMLSchema#integer" ></dataType>
+        <answerLabel>other</answerLabel>
+</TextAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="selectManyThings1" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="apple"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>AND</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+								<value>true</value>
+								<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</condition>  
+	<line rdf:resource="new-section603872ad-03a6-4820-a16b-859f18feed28" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="selectManyThings1" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="apple"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>OR</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+								<value>true</value>
+								<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</condition>  
+	<line rdf:resource="new-sectiondb759855-afd6-4534-b9de-84787cc7cb42" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="selectManyThings1" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="apple"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>OR</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+							<value>6</value>
+							<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</condition>  
+	<line rdf:resource="new-section6c985200-09fa-4c29-a3d1-ef5576986b66" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="selectManyThings1" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value>true</value>
+						<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>AND</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+							<value>6</value>
+							<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</condition>  
+	<line rdf:resource="new-section4248c6f0-5df2-4d5d-ba9d-1e142d579d8a" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="selectManyThings1" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value>true</value>
+						<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>AND</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>!contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+							<value>6</value>
+							<datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</condition>  
+	<line rdf:resource="new-section0ce55397-9e3a-4813-ba02-3c0636c83076" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <ConditionalBranch>
+	<condition>
+		<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Condition>
+	<leftOperand>
+			<Operand>
+					<value rdf:resource="selectManyThings1" ></value>
+				<datatype>survey:predicate</datatype>
+			</Operand>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>contains</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Operand>
+						<value rdf:resource="apple"></value>
+						<datatype>survey:object</datatype>
+			</Operand>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>AND</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+								<value>true</value>
+								<datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</leftOperand>
+	<operator>
+		<Operator>
+				<value>AND</value>
+		</Operator>
+	</operator>
+	<rightOperand>
+			<Condition>
+				<leftOperand>
+					<Operand>
+							<value rdf:resource="selectManyThings1" ></value>
+						<datatype>survey:predicate</datatype>
+					</Operand>
+				</leftOperand>
+				<operator>
+					<Operator>
+						<value>contains</value>
+					</Operator>
+				</operator>
+				<rightOperand>
+					<Operand>
+							<value>6.5</value>
+							<datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+					</Operand>
+				</rightOperand>
+			</Condition>
+	</rightOperand>
+</Condition>
+	</condition>  
+	<line rdf:resource="new-section075090f4-f939-40c9-bf58-d2a5a2f1da5d" ></line>
+</ConditionalBranch>
+</rdf:li>
+    <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>end of AND OR testing</questionText>
+        <answerProperty rdf:resource="endOfAndOr" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
 </rdf:li>
 </Line>
             <Line rdf:about="new-section1303841442305">
@@ -853,6 +1263,126 @@
     <SelectMultipleQuestion>
         <questionText>no hawaii</questionText>
         <answerProperty rdf:resource="noHawaiiJunk" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section603872ad-03a6-4820-a16b-859f18feed28">
+        <internalName>apple and yes</internalName>
+        <dc:title>apple and yes</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>appleAndYes</questionText>
+        <answerProperty rdf:resource="appleAndYes" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-sectiondb759855-afd6-4534-b9de-84787cc7cb42">
+        <internalName>apple or yes</internalName>
+        <dc:title>apple or yes</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>appleOrYes</questionText>
+        <answerProperty rdf:resource="appleOrYes" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section6c985200-09fa-4c29-a3d1-ef5576986b66">
+        <internalName>apple or 6</internalName>
+        <dc:title>apple or 6</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>appleOr6</questionText>
+        <answerProperty rdf:resource="appleOr6" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section4248c6f0-5df2-4d5d-ba9d-1e142d579d8a">
+        <internalName>yes and 6</internalName>
+        <dc:title>yes and 6</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>yesAnd6</questionText>
+        <answerProperty rdf:resource="YesAnd6" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section0ce55397-9e3a-4813-ba02-3c0636c83076">
+        <internalName>yes and not 6</internalName>
+        <dc:title>yes and not 6</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>yesAndNot6</questionText>
+        <answerProperty rdf:resource="YesAndNot6" ></answerProperty>
+    <questionAnswers>
+        <AnswerSequence>
+                <rdf:li>
+    <LabelAnswer>
+        <answerText>junk</answerText>
+	        <answerObject rdf:resource="junk"></answerObject>
+</LabelAnswer>
+</rdf:li>
+        </AnswerSequence>
+    </questionAnswers>
+</SelectMultipleQuestion>
+</rdf:li>
+</Line>
+            <Line rdf:about="new-section075090f4-f939-40c9-bf58-d2a5a2f1da5d">
+        <internalName>apple and yes and 6.5</internalName>
+        <dc:title>apple and yes and 6.5</dc:title>
+        <rdf:li>
+    <SelectMultipleQuestion>
+        <questionText>appleAndYesAnd6.5</questionText>
+        <answerProperty rdf:resource="appleAndYesAnd6.5" ></answerProperty>
     <questionAnswers>
         <AnswerSequence>
                 <rdf:li>
