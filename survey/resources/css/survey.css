@@ -158,12 +158,24 @@ button {
 	border-left: none;
 }
 
+
 .answer-text {
+	display: inline;
 	cursor: pointer;
 }
 
 .answer-text .answer-label, .answer-text .answer-note {
 	cursor: default;
+}
+
+.answer-selector {
+	vertical-align: top;
+}
+
+.answer-input-long {
+	height: 5em;
+	max-width: 800px;
+	width: 100%;
 }
 
 .grid {
