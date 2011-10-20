@@ -305,8 +305,19 @@ SurveyState = Class.extend({
 			if ($.toJSON(this.answers[this.answer_index - offset]) != $.toJSON(answer)) {
 				if(failOnChange){
 					if(this.answer_index < (this.answers.length-1)) {
-						//  don't change answer if failOnChange is true and we are not changing the last answer
-						return false;
+						// check to see if future answers are empty, if not fail
+						for (var i=this.answers.length-1; i > this.answer_index; i--) {
+							if (this.answers[i].choice && this.answers[i].choice.label) {
+								return false;
+							}
+							else if (this.answers[i].choices) {
+								var answers = $.map(this.answers[i].choices, function(val, i){if (val.label) {return val.label}})
+								if (answers.length > 0) {
+									return false;
+								}
+							}
+							
+						}
 					}
 				}
 				else{
