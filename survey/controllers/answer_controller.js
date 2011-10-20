@@ -28,7 +28,7 @@ AnswerController = $.Controller.extend('Survey.Controllers.Answer',
     	var prevInput = el.prev('input');
 		if(prevInput.length > 0){
 			if(prevInput.attr('type') === 'checkbox'){
-				if (el.find('input').length > 0) {
+				if (el.find('input, textarea').length > 0) {
 					// there is a sub-input box in the answer text
 					prevInput.attr('checked', 'checked');
 				}
