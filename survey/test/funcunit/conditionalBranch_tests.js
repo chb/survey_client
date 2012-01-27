@@ -41,9 +41,8 @@ test("Integer Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("5");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(2, 'integer equal to 5');
 	
 	// go back 
@@ -54,9 +53,8 @@ test("Integer Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("6");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(2, 'integer greater than 5');
 	
 });
@@ -81,9 +79,8 @@ test("Date Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("01/01/2011");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(4, 'date equal to 01/01/2011');
 	
 	// go back 
@@ -94,9 +91,8 @@ test("Date Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("02/01/2011");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(4, 'date greater than 01/01/2011');
 });
 
@@ -120,9 +116,8 @@ test("Decimal Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type(".1000");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(6, 'decimal less than 3.14');
 	
 	// go back 
@@ -133,9 +128,8 @@ test("Decimal Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("3.14");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(6, 'decimal equal to 3.14');
 	
 	// go back 
@@ -146,9 +140,8 @@ test("Decimal Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("03.140");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(6, 'decimal equal to 3.14');
 	
 	// go back 
@@ -159,9 +152,8 @@ test("Decimal Branching", function(){
 	equals(S('#question_1 .answer:first .answer-input').text(), "");
 	S('#question_1 .answer:first .answer-input').click().type("3.145");
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(6, 'decimal greater than 3.14');
 });
 
@@ -183,9 +175,8 @@ test("Object Branching", function(){
 	// orange
 	S('#question_1 .answer:last .answer-selector').click();
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(8, 'orange selected');
 	
 });
@@ -208,9 +199,8 @@ test("Boolean Object Branching", function(){
 	// no
 	S('#question_1 .answer:last .answer-selector').click();
 	
-	// click next, select "yes" to change answer, and wait for second question to render
+	// click next and wait for second question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkQuestionText(10, 'no was selected');
 	
 });
@@ -238,9 +228,8 @@ test("Contains/Does Not Contain Operator", function(){
 	// deselect hawaii
 	S('#question_1 .answer:last .answer-selector').click();
 	
-	// click next, select "yes" to change answer, and wait for question to render
+	// click next  and wait for question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkQuestionText(12, 'alaska was selected');
 	
 	// click next and wait for question to render
@@ -276,9 +265,8 @@ test("AND/OR Operator", function(){
 	S('#question_1 .answer .answer-selector:first').click();
 	S('#question_1 .answer .answer-selector:eq(1)').click();
 	
-	// click next, select "yes" to change answer, and wait for question to render
+	// click next and wait for question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(15, 'apple or yes');
 	
 	// click next and wait for question to render
@@ -295,9 +283,8 @@ test("AND/OR Operator", function(){
 	// test with apple and yes checked
 	S('#question_1 .answer .answer-selector:first').click();
 	
-	// click next, select "yes" to change answer, and wait for question to render
+	// click next and wait for question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(15, 'apple and yes');
 	
 	// click next and wait for question to render
@@ -323,9 +310,8 @@ test("AND/OR Operator", function(){
 	S('#question_1 .answer .answer-selector:first').click();
 	S('#question_1 .answer:last .answer-input').click().type("6");
 	
-	// click next, select "yes" to change answer, and wait for question to render
+	// click next and wait for question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(15, 'apple or yes');
 	
 	// click next and wait for question to render
@@ -348,9 +334,8 @@ test("AND/OR Operator", function(){
 	S('#question_1 .answer:last .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
 	S('#question_1 .answer:last .answer-input').click().type("6.5");
 	
-	// click next, select "yes" to change answer, and wait for question to render
+	// click next and wait for question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkContextDetails(15, 'apple and yes');
 	
 	// click next and wait for question to render
@@ -376,9 +361,8 @@ test("AND/OR Operator", function(){
 	S('#question_1 .answer:last .answer-input').click().type("[ctrl][a][ctrl-up][delete]");
 	S('#question_1 .answer:last .answer-input').click().type("5");
 	
-	// click next, select "yes" to change answer, and wait for question to render
+	// click next and wait for question to render
 	S('#next').click();
-	SBTestUtils.yesToChange();
 	SBTestUtils.checkQuestionText(15, 'end of AND OR testing');
 	
 });
