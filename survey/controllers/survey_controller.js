@@ -158,7 +158,7 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 			if(pageErrors.length <= 0 && current_answer != undefined) {
 				// only try to save off the answer if we haven't found any on the page yet, and we have an answer to save
 		        if(!SURVEY.setCurrentAnswer(current_answer, numberToSave - i, failOnChange) && failOnChange){
-		        	$('#dialog-text').text(SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_WARNING);
+		        	$('#dialog-text').html(SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_WARNING);
 		        	$('#dialog').dialog({
 		        		title: SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_TITLE,
 						autoOpen: true,
