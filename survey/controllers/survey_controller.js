@@ -158,9 +158,9 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 			if(pageErrors.length <= 0 && current_answer != undefined) {
 				// only try to save off the answer if we haven't found any on the page yet, and we have an answer to save
 		        if(!SURVEY.setCurrentAnswer(current_answer, numberToSave - i, failOnChange) && failOnChange){
-		        	$('#dialog-text').text(MESSAGES.ANSWER_CHANGE_WARNING);
+		        	$('#dialog-text').text(SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_WARNING);
 		        	$('#dialog').dialog({
-		        		title: MESSAGES.ANSWER_CHANGE_TITLE,
+		        		title: SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_TITLE,
 						autoOpen: true,
 						resizable: false,
 						modal: true,
@@ -200,7 +200,7 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 			for (error in pageErrors) {
 				messages += '<li>' + pageErrors[error].message + '</li>';
 			}
-			Survey.Controllers.Survey.showModalMessage('<ul>' + messages + '</ul>', MESSAGES.ERROR);
+			Survey.Controllers.Survey.showModalMessage('<ul>' + messages + '</ul>', SURVEY_CLIENT.MESSAGES.ERROR);
 			return false;
 		}
          
@@ -252,18 +252,18 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 		var num_questions = SURVEY.estimateNumQuestions();
 
 	    if(current_end_question_num === current_start_question_count){
-	        $('#question-count-label').text(MESSAGES.QUESTION);
+	        $('#question-count-label').text(SURVEY_CLIENT.MESSAGES.QUESTION);
 	        $('#questionnum').html(current_end_question_num);
 	    }
 	    else{
-	        $('#question-count-label').text(MESSAGES.QUESTIONS);
+	        $('#question-count-label').text(SURVEY_CLIENT.MESSAGES.QUESTIONS);
 	        $('#questionnum').html(current_start_question_count + '-' + current_end_question_num);
 	    }
 		$('#totalquestion').html(num_questions);
 		this.set_progress_bar((current_end_question_num * 100 - 50) / num_questions);
 
 		if (TRANSITIONS && old_value != new_value)
-			Survey.Controllers.Survey.showModalMessage(MESSAGES.TRANSITION_BASE + " " + new_value);
+			Survey.Controllers.Survey.showModalMessage(SURVEY_CLIENT.MESSAGES.TRANSITION_BASE + " " + new_value);
     },
 
     "#goto_end click": function(el, ev) {
@@ -481,33 +481,33 @@ SurveyController = $.Controller.extend('Survey.Controllers.Survey',
 	    this.survey = SURVEY.survey;
 	    Survey.Controllers.Survey.hideAjaxLoader();
 	    Survey.Controllers.Survey.enableButtons();
-	    Survey.Controllers.Survey.showModalMessage($.View("//survey/views/survey/ajax_error.ejs", {survey:SURVEY.survey, text:MESSAGES.SAVE_STATE_ERROR, support_message:MESSAGES.SURVEY_SUPPORT_MESSAGE, support_name:MESSAGES.SURVEY_SUPPORT_NAME}), MESSAGES.ERROR);
+	    Survey.Controllers.Survey.showModalMessage($.View("//survey/views/survey/ajax_error.ejs", {survey:SURVEY.survey, text:SURVEY_CLIENT.MESSAGES.SAVE_STATE_ERROR, support_message:SURVEY_CLIENT.MESSAGES.SURVEY_SUPPORT_MESSAGE, support_name:SURVEY_CLIENT.MESSAGES.SURVEY_SUPPORT_NAME}), SURVEY_CLIENT.MESSAGES.ERROR);
     }, 
     
     save_state_success: function(){
     	Survey.Controllers.Survey.enableButtons();
     	Survey.Controllers.Survey.hideAjaxLoader();
-	    Survey.Controllers.Survey.showModalMessage(MESSAGES.SAVE_STATE_SUCCESS, MESSAGES.SUCCESS);
+	    Survey.Controllers.Survey.showModalMessage(SURVEY_CLIENT.MESSAGES.SAVE_STATE_SUCCESS, SURVEY_CLIENT.MESSAGES.SUCCESS);
 	    SURVEY.existing_state = SURVEY.state.getEncodedAnswers(); 
 	    OpenAjax.hub.publish('survey.splashPage', {});
     }, 
     
     save_state_and_exit_success: function(){
     	Survey.Controllers.Survey.hideAjaxLoader();
-    	Survey.Controllers.Survey.showModalMessage(MESSAGES.SAVE_STATE_SUCCESS, MESSAGES.SUCCESS, function(){window.location = EXIT_PATH;});
+    	Survey.Controllers.Survey.showModalMessage(SURVEY_CLIENT.MESSAGES.SAVE_STATE_SUCCESS, SURVEY_CLIENT.MESSAGES.SUCCESS, function(){window.location = EXIT_PATH;});
     }, 
     
     save_answers_error: function(){
     	Survey.Controllers.Survey.enableButtons();
     	Survey.Controllers.Survey.hideAjaxLoader();
-	    Survey.Controllers.Survey.showModalMessage($.View("//survey/views/survey/ajax_error.ejs", {survey:SURVEY.survey, text:MESSAGES.SAVE_ANSWERS_ERROR, support_message:MESSAGES.SURVEY_SUPPORT_MESSAGE, support_name:MESSAGES.SURVEY_SUPPORT_NAME}), MESSAGES.ERROR);
+	    Survey.Controllers.Survey.showModalMessage($.View("//survey/views/survey/ajax_error.ejs", {survey:SURVEY.survey, text:SURVEY_CLIENT.MESSAGES.SAVE_ANSWERS_ERROR, support_message:SURVEY_CLIENT.MESSAGES.SURVEY_SUPPORT_MESSAGE, support_name:SURVEY_CLIENT.MESSAGES.SURVEY_SUPPORT_NAME}), SURVEY_CLIENT.MESSAGES.ERROR);
     }, 
     
     save_answers_success: function(){
     	Survey.Controllers.Survey.enableButtons();
 	    Survey.Controllers.Survey.hideAjaxLoader();
 	    SURVEY.done_p = true;
-	    Survey.Controllers.Survey.showModalMessage(MESSAGES.SAVE_ANSWERS_SUCCESS, MESSAGES.SUCCESS);
+	    Survey.Controllers.Survey.showModalMessage(SURVEY_CLIENT.MESSAGES.SAVE_ANSWERS_SUCCESS, SURVEY_CLIENT.MESSAGES.SUCCESS);
 	    OpenAjax.hub.publish('survey.donePage', {});
     }
 

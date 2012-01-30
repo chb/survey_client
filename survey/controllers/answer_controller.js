@@ -14,7 +14,7 @@ AnswerController = $.Controller.extend('Survey.Controllers.Answer',
 			var elDataType = $(this).attr("data-datatype") || "";
 		
 			if (elDataType === 'xsd:date' || elDataType === RDF.Symbol.XSDdate.uri ){
-				$(this).closest('.answer-text').after('<span>' + MESSAGES.DATE_DISPLAY_FORMAT + '</span>');
+				$(this).closest('.answer-text').after('<span>' + SURVEY_CLIENT.MESSAGES.DATE_DISPLAY_FORMAT + '</span>');
 				var current_year = new Date().getFullYear();
 				$(this).datepicker({showOn: "button", buttonImage: CALENDAR_PNG, buttonImageOnly: true, duration: 'fast', changeMonth: true, changeYear:true, minDate: new Date(1900, 1,1), yearRange: '1900:' + current_year});
 			}

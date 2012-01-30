@@ -39,7 +39,7 @@ test("No Answer Selected", function(){
 	// make sure dialog shows up when next is clicked and no text entered
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.EMPTY_SELECT_ONE);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.EMPTY_SELECT_ONE);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -96,7 +96,7 @@ test("Submit Answers", function(){
 	});
 	S('#submit_answers').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.SAVE_ANSWERS_SUCCESS);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.SAVE_ANSWERS_SUCCESS);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();

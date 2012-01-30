@@ -58,6 +58,8 @@
 
 		$(document).ready(function() {
 			CALENDAR_PNG = 'resources/cal.png';
+			// set translation language
+			SURVEY_CLIENT.MESSAGES = SURVEY_CLIENT.TRANSLATIONS['EN'];
 			OpenAjax.hub.publish('main.load', {'data_connector' : connector });
 			$.progressBar.defaults.boxImage = 'resources/jquery.progressbar/images/progressbar.gif';
 			$.progressBar.defaults.barImage = 'resources/jquery.progressbar/images/progressbg_green.gif';

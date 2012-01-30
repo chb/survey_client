@@ -35,7 +35,7 @@ test("Integer Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_INTEGER);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_INTEGER);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -48,7 +48,7 @@ test("Integer Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_INTEGER);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_INTEGER);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -61,7 +61,7 @@ test("Integer Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_INTEGER);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_INTEGER);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -116,7 +116,7 @@ test("Decimal Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_DECIMAL);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_DECIMAL);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -129,7 +129,7 @@ test("Decimal Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_DECIMAL);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_DECIMAL);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -204,7 +204,7 @@ test("Date Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_DATE);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_DATE);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
@@ -228,7 +228,7 @@ test("Date Validation", function(){
 	// make sure dialog shows up when next is clicked with invalid input
 	S('#next').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.INVALID_DECIMAL);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.INVALID_DECIMAL);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();

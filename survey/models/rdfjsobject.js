@@ -210,7 +210,7 @@ LabelAnswerJSObject = AnswerJSObject.extend({
     // nothing needed here for just a label
   },
   matches: function(current_answer) {
-    return (this.text == current_answer.label)
+  	return (this.text == current_answer.label);
   },
   addToAnswerGraph: function(current_subject, current_question, answer, graph) {
     var property = this.property || current_question.answer_property;
@@ -248,7 +248,7 @@ TextAnswerJSObject = AnswerJSObject.extend({
 
     // make sure it's not empty
     if ($.trim(raw_answer) == "") {
-      var error = new Error(MESSAGES.EMPTY_ANSWER);
+      var error = new Error(SURVEY_CLIENT.MESSAGES.EMPTY_ANSWER);
       error.name = 'AnswerRequired';
       error.el = $(dom_element).closest('.answer');
       throw error;
@@ -258,7 +258,7 @@ TextAnswerJSObject = AnswerJSObject.extend({
 	    if (this.datatype.sameTerm(RDF.Symbol.XSDdateTime)) {
 	      //TODO: better way to handle this
 	      // Grab the date from the datepicker if the text in the input field matches the date selected on the datepicker
-	      if (raw_answer && raw_answer === $.datepicker.formatDate( MESSAGES.DATE_FORMAT, $(dom_element).find('.answer-input').datepicker('getDate'))) {
+	      if (raw_answer && raw_answer === $.datepicker.formatDate( SURVEY_CLIENT.MESSAGES.DATE_FORMAT, $(dom_element).find('.answer-input').datepicker('getDate'))) {
 	        raw_answer = $.datepicker.formatDate( 'mm/dd/yy', $(dom_element).find('.answer-input').datepicker('getDate'));
 	      }
 	    }
@@ -956,7 +956,7 @@ SelectOneQuestionJSObject = QuestionJSObject.extend({
     }
 
     if (result == null) {
-      var error = new Error(MESSAGES.EMPTY_SELECT_ONE);
+      var error = new Error(SURVEY_CLIENT.MESSAGES.EMPTY_SELECT_ONE);
       error.name = 'AnswerRequired';
       error.el = dom_element;
       throw error;
@@ -1028,6 +1028,7 @@ SelectMultipleQuestionJSObject = QuestionJSObject.extend({
         result[i] = {};
       }
     });
+    
     return {"choices": result};
   },
   getChoices: function(answer) {
@@ -1082,13 +1083,12 @@ SimpleQuestionJSObject = QuestionJSObject.extend({
   getCurrentAnswer: function(dom_element) {
     // the element where the answer is placed
     var answer_el = $(dom_element).find('.answer-text')[0];
-
     var single_value = this.answers[0].getValue(answer_el);
 
     return this.getAnswerFromAnswerValue(single_value);
   },
   getAnswerFromAnswerValue: function(answer_value) {
-    return {'single': answer_value};
+  	return {'single': answer_value};
   },
   prettifyAnswer: function(answer_struct) {
     return answer_struct['single'].text;
@@ -1097,10 +1097,10 @@ SimpleQuestionJSObject = QuestionJSObject.extend({
     return this.getAnswerFromAnswerValue(this.answers[0].getValueFromRaw(raw));
   },
   get_single: function(answer) {
-    return answer.single || {};
+  	return answer.single || {};
   },
   addToAnswerGraph: function(current_subject, answer, graph) {
-    this.answers[0].addToAnswerGraph(current_subject, this, this.get_single(answer),graph);
+  	this.answers[0].addToAnswerGraph(current_subject, this, this.get_single(answer),graph);
   },
   removeFromAnswerGraph: function(current_subject, answer, graph) {
     this.answers[0].removeFromAnswerGraph(current_subject, this, this.get_single(answer),graph);
@@ -1135,7 +1135,7 @@ GridSelectOneQuestionJSObject = QuestionJSObject.extend({
         }
       });
       if (result[j] == null) {
-        var error = new Error(MESSAGES.EMPTY_SELECT_ONE);
+        var error = new Error(SURVEY_CLIENT.MESSAGES.EMPTY_SELECT_ONE);
         error.name = 'AnswerRequired';
         error.el = el;
         errors.push(error);
@@ -1294,7 +1294,7 @@ function process_parameters(parameters_rdf, subject, answer_graph, vars) {
  */
 function dateValidation(input) {
   if(!DateValidation.isDate(input)) {
-    return MESSAGES.INVALID_DATE;
+    return SURVEY_CLIENT.MESSAGES.INVALID_DATE;
   }
 
   return null;
@@ -1307,7 +1307,7 @@ function validate_decimal(input) {
   if (input.match(/^(\+|-)?([0-9]+(\.[0-9]*)?$|^\.[0-9]+)$/)) {
     return null;
   } else {
-    return MESSAGES.INVALID_DECIMAL;
+    return SURVEY_CLIENT.MESSAGES.INVALID_DECIMAL;
   }
 }
 
@@ -1318,7 +1318,7 @@ function validate_integer(input) {
   if (input.match(/^(\+|-)?\d+$/)) {
     return null;
   } else {
-    return MESSAGES.INVALID_INTEGER;
+    return SURVEY_CLIENT.MESSAGES.INVALID_INTEGER;
   }
 }
 

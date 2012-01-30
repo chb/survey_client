@@ -56,10 +56,10 @@ test("Warn On Answer Change", function(){
 	
 	// check the text on the dialog
 	S('#dialog').visible(function(){
-		equals(S('#ui-dialog-title-dialog').text(), MESSAGES.ANSWER_CHANGE_TITLE);
-		equals(S('#dialog-text').text(), MESSAGES.ANSWER_CHANGE_WARNING);
-		equals(S('.ui-dialog-buttonset .ui-button-text:first').text(), MESSAGES.DIALOG_YES);
-		equals(S('.ui-dialog-buttonset .ui-button-text:last').text(), MESSAGES.DIALOG_NO);
+		equals(S('#ui-dialog-title-dialog').text(), SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_TITLE);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.ANSWER_CHANGE_WARNING);
+		equals(S('.ui-dialog-buttonset .ui-button-text:first').text(), SURVEY_CLIENT.MESSAGES.DIALOG_YES);
+		equals(S('.ui-dialog-buttonset .ui-button-text:last').text(), SURVEY_CLIENT.MESSAGES.DIALOG_NO);
 	});
 	
 	// select no and check to make sure we didn't go anywhere

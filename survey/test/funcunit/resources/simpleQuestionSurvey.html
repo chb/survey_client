@@ -52,9 +52,11 @@
        };
 
        $(document).ready(function() {
-		   OpenAjax.hub.publish('main.load', {'data_connector' : connector });
-		   $.progressBar.defaults.boxImage = 'resources/jquery.progressbar/images/progressbar.gif';
-		   $.progressBar.defaults.barImage = 'resources/jquery.progressbar/images/progressbg_green.gif';
+			// set translation language
+			SURVEY_CLIENT.MESSAGES = SURVEY_CLIENT.TRANSLATIONS['EN'];
+			OpenAjax.hub.publish('main.load', {'data_connector' : connector });
+			$.progressBar.defaults.boxImage = '../../../resources/jquery.progressbar/images/progressbar.gif';
+			$.progressBar.defaults.barImage = '../../../resources/jquery.progressbar/images/progressbg_green.gif';
        });
 
      </script>

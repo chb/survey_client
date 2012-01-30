@@ -1,5 +1,5 @@
 <% if (ALLOW_EXIT) { %>
-	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:MESSAGES.BUTTONS.EXIT, exitID:'exit'}) %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:SURVEY_CLIENT.MESSAGES.BUTTONS.EXIT, exitID:'exit'}) %>
 <% } else {%>
 	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
 <% } %>
@@ -11,7 +11,7 @@
 
 <% if (survey.proband_name) { %>
 <p>
-	<%= MESSAGES.PROBAND_INTRO %> <b><%= survey.proband_name %></b>.
+	<%= SURVEY_CLIENT.MESSAGES.PROBAND_INTRO %> <b><%= survey.proband_name %></b>.
 </p>
 <% } %>
 
@@ -20,22 +20,22 @@
 <% } %>
 
 <% if (survey.showDeIdentifiedMessage && survey.showDeIdentifiedMessage == 'true') { %>
-<p id="de-identified-welcome-message"><%= MESSAGES.DE_IDENTIFIED_INTRO %></p>
+<p id="de-identified-welcome-message"><%= SURVEY_CLIENT.MESSAGES.DE_IDENTIFIED_INTRO %></p>
 <% } %>
 
 <% if (existing_state) {%>
 <p>
- <%= MESSAGES.SURVEY_ALREADY_STARTED %>
+ <%= SURVEY_CLIENT.MESSAGES.SURVEY_ALREADY_STARTED %>
 </p>
 <p>
-<button id="restore" value="restore"><%= MESSAGES.BUTTONS.SURVEY_RESTORE %></button><br />
-<button id="restart" ><%= MESSAGES.BUTTONS.SURVEY_RESTART %></button>
+<button id="restore" value="restore"><%= SURVEY_CLIENT.MESSAGES.BUTTONS.SURVEY_RESTORE %></button><br />
+<button id="restart" ><%= SURVEY_CLIENT.MESSAGES.BUTTONS.SURVEY_RESTART %></button>
 </p>
 </div>
 
 <% } else { %>
 <p>
-<button id="start" value="start"><%= MESSAGES.BUTTONS.SURVEY_START %></button>
+<button id="start" value="start"><%= SURVEY_CLIENT.MESSAGES.BUTTONS.SURVEY_START %></button>
 </p>
 
 <% } %>

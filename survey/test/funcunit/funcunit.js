@@ -8,4 +8,7 @@ steal
  .then("gridSelectOne_tests")
  .then("dataFormat_tests")
  .then("behavior_tests")
- .then("conditionalBranch_tests");
+ .then("conditionalBranch_tests")
+ .then(function(){
+	SURVEY_CLIENT.MESSAGES = SURVEY_CLIENT.TRANSLATIONS['EN'];
+ });

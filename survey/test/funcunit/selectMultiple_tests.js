@@ -99,7 +99,7 @@ test("Three Options Selected, Including Text", function(){
 		equals(S('#question_1 .answer:nth-child(1) .answer-selector').attr('checked'), true);
 		equals(S('#question_1 .answer:nth-child(2) .answer-selector').attr('checked'), true);
 		equals(S('#question_1 .answer:nth-child(6) .answer-selector').attr('checked'), true);
-		equals(S('#question_1 .answer:nth-child(6) .answer-input').val().trim(), "martian");
+		equals(S('#question_1 .answer:nth-child(6) .answer-input').val(), "martian");
 	});
 	
 	// go back and then forward and make sure our answers still shows up
@@ -111,7 +111,7 @@ test("Three Options Selected, Including Text", function(){
 		equals(S('#question_1 .answer:nth-child(1) .answer-selector').attr('checked'), true);
 		equals(S('#question_1 .answer:nth-child(2) .answer-selector').attr('checked'), true);
 		equals(S('#question_1 .answer:nth-child(6) .answer-selector').attr('checked'), true);
-		equals(S('#question_1 .answer:nth-child(6) .answer-input').val().trim(), "martian");
+		equals(S('#question_1 .answer:nth-child(6) .answer-input').val(), "martian");
 	});
 });		
 	
@@ -123,7 +123,7 @@ test("Submit Answers", function(){
 	});
 	S('#submit_answers').click();
 	S('#dialog').visible(function(){
-		equals(S('#dialog-text').text(), MESSAGES.SAVE_ANSWERS_SUCCESS);
+		equals(S('#dialog-text').text(), SURVEY_CLIENT.MESSAGES.SAVE_ANSWERS_SUCCESS);
 		S('.ui-dialog-buttonset .ui-button-text:first').click();
 	});
 	S('#dialog').invisible();
