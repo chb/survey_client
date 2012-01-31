@@ -307,7 +307,7 @@ SurveyState = Class.extend({
 					if(this.answer_index < (this.answers.length-1)) {
 						// check to see if future answers are empty, if not fail
 						for (var i=this.answers.length-1; i > this.answer_index; i--) {
-							if (this.answers[i].choice && this.answers[i].choice.label) {
+							if (this.answers[i].single || (this.answers[i].choice && this.answers[i].choice.label)) {
 								return false;
 							}
 							else if (this.answers[i].choices) {
