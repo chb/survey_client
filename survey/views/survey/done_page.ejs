@@ -1,5 +1,5 @@
 <% if (ALLOW_EXIT) { %>
-	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:'Exit', exitID:'exit'}) %>
+	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:SURVEY_CLIENT.MESSAGES.BUTTONS.EXIT, exitID:'exit'}) %>
 <% } else {%>
 	<%= $.View("//survey/views/survey/header.ejs", {survey:survey, exitText:''}) %>
 <% } %>
